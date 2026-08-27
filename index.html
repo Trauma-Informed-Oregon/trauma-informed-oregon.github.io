@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Interactive resources from Trauma Informed Oregon.">
+  <meta name="robots" content="noindex, follow">
+  <title>TIO Web Apps | Trauma Informed Oregon</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --background: #f4f1e9;
+      --surface: #ffffff;
+      --ink: #183c3e;
+      --muted: #4f6363;
+      --teal: #17696b;
+      --teal-dark: #0f5052;
+      --accent: #c85e32;
+      --focus: #f0b429;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      min-height: 100vh;
+      margin: 0;
+      display: grid;
+      place-items: center;
+      padding: 24px;
+      background:
+        radial-gradient(circle at top left, rgba(23, 105, 107, 0.12), transparent 38rem),
+        var(--background);
+      color: var(--ink);
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.6;
+    }
+
+    main {
+      width: min(720px, 100%);
+    }
+
+    .card {
+      overflow: hidden;
+      border: 1px solid rgba(24, 60, 62, 0.16);
+      border-radius: 18px;
+      background: var(--surface);
+      box-shadow: 0 18px 50px rgba(24, 60, 62, 0.10);
+    }
+
+    .bar {
+      height: 10px;
+      background: linear-gradient(90deg, var(--teal), var(--accent));
+    }
+
+    .content {
+      padding: clamp(32px, 7vw, 64px);
+    }
+
+    .brand {
+      display: inline-block;
+      margin-bottom: 40px;
+      color: var(--teal-dark);
+      font-weight: 700;
+      text-decoration-thickness: 2px;
+      text-underline-offset: 4px;
+    }
+
+    .eyebrow {
+      margin: 0 0 8px;
+      color: var(--accent);
+      font-size: 0.82rem;
+      font-weight: 800;
+      letter-spacing: 0.11em;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(2.25rem, 8vw, 4.5rem);
+      line-height: 1.05;
+      letter-spacing: -0.04em;
+    }
+
+    .intro {
+      max-width: 52ch;
+      margin: 24px 0 32px;
+      color: var(--muted);
+      font-size: clamp(1.05rem, 2.5vw, 1.25rem);
+    }
+
+    .button {
+      display: inline-block;
+      border-radius: 999px;
+      padding: 13px 22px;
+      background: var(--teal);
+      color: #ffffff;
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    .button:hover {
+      background: var(--teal-dark);
+    }
+
+    a:focus-visible {
+      outline: 4px solid var(--focus);
+      outline-offset: 4px;
+    }
+
+    @media (max-width: 480px) {
+      body {
+        padding: 14px;
+      }
+
+      .content {
+        padding: 30px 24px 36px;
+      }
+
+      .brand {
+        margin-bottom: 32px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <section class="card" aria-labelledby="page-title">
+      <div class="bar" aria-hidden="true"></div>
+      <div class="content">
+        <a class="brand" href="https://traumainformedoregon.org/">Trauma Informed Oregon</a>
+        <p class="eyebrow">Interactive resources</p>
+        <h1 id="page-title">TIO Web Apps</h1>
+        <p class="intro">Trauma-informed tools and learning resources from Trauma Informed Oregon.</p>
+        <a class="button" href="https://traumainformedoregon.org/">Visit Trauma Informed Oregon</a>
+      </div>
+    </section>
+  </main>
+</body>
+</html>
