@@ -36,10 +36,10 @@ footer{padding:28px 22px;background:#f2eee7;color:#5f6875;text-align:center}
 </head>
 <body>
 <a class="skip" href="#main">Skip to practice</a>
-<header><div class="header"><div class="brand"><span class="mark">TIO</span><div><strong>Trauma Informed Oregon</strong><small>TI Supervision • Module 2 Practice Lab</small></div></div><span class="pill">Nothing is submitted</span></div></header>
+<header><div class="header"><div class="brand"><span class="mark">TIO</span><div><strong>Trauma Informed Oregon</strong><small>TI Supervision - Module 2 Practice Lab</small></div></div><span class="pill">Nothing is submitted</span></div></header>
 <main id="main">
 <section class="hero">
-<div><p class="pill">Module 2</p><h1>Practice the relationship, not just the language.</h1><p>Work through a supervision moment using the four current strategies from Module 2. There is no score. The goal is to notice what the moment may need, practice language in your own voice, and leave with one usable next step.</p></div>
+<div><p class="pill">Module 2</p><h1>Practice what you would actually do and say.</h1><p>Work through a supervision moment using the four current strategies from Module 2. Notice what is shaping the moment, choose a strategy, practice an opening in your own voice, and decide how you will follow through.</p></div>
 <div class="orbit" aria-hidden="true"><strong>Notice<br>Choose<br>Practice<br>Adjust</strong></div>
 </section>
 <div class="notice"><strong>Use a low-activation example.</strong> Keep real situations at about a 2 or 3 on a 10-point activation scale and remove identifying details. You may also use one of the hypothetical scenarios below.</div>
@@ -48,7 +48,7 @@ footer{padding:28px 22px;background:#f2eee7;color:#5f6875;text-align:center}
 <button data-step="2">2. Read the moment</button>
 <button data-step="3">3. Choose a strategy</button>
 <button data-step="4">4. Build language</button>
-<button data-step="5">5. Carry it forward</button>
+<button data-step="5">5. Follow through</button>
 </nav>
 
 <section class="panel active" data-panel="1">
@@ -79,37 +79,37 @@ footer{padding:28px 22px;background:#f2eee7;color:#5f6875;text-align:center}
 <label for="opening"><strong>Your opening</strong></label>
 <textarea id="opening" placeholder="Write it the way you would actually say it."></textarea>
 <label for="bothAnd"><strong>What two truths might need to be held at the same time?</strong></label>
-<textarea id="bothAnd" class="short" placeholder="Example: The impact needs to be addressed AND the workload context matters."></textarea>
+<textarea id="bothAnd" class="short" placeholder="Example: The concern needs attention, and the workload context also matters."></textarea>
 <div class="actions"><button class="btn quiet" id="showPossibility">Show a possible direction</button></div>
 <div id="possibility" class="feedback" hidden></div>
 <div class="actions"><button class="btn secondary" data-back="3">Back</button><button class="btn" data-next="5">Carry it forward</button></div>
 </div></section>
 
 <section class="panel" data-panel="5">
-<div class="card"><h2>Carry it forward</h2>
+<div class="card"><h2>Plan your follow-through</h2>
 <label for="nextAction"><strong>One thing I will do in my next supervision session</strong></label>
 <textarea id="nextAction" class="short"></textarea>
-<label for="followThrough"><strong>How will I follow through so this does not disappear after one conversation?</strong></label>
+<label for="followThrough"><strong>What will I revisit, name, or do after this conversation?</strong></label>
 <textarea id="followThrough" class="short"></textarea>
 <div class="actions"><button class="btn" id="makeSummary">Create my practice summary</button><button class="btn secondary" onclick="window.print()">Print / Save PDF</button><button class="btn quiet" id="resetAll">Start over</button></div>
 <div id="summaryBox" class="summary" hidden></div>
 </div></section>
 </main>
-<footer>Trauma Informed Oregon • Portland State University • Equity-Centered Trauma Informed Supervision</footer>
+<footer>Trauma Informed Oregon - Portland State University - Equity-Centered Trauma Informed Supervision</footer>
 <script>
 const scenarios=[
-["Micromanaged","A supervisee says they feel micromanaged. You believed you were being supportive and available."],
-["Urgency pressure","A time-sensitive situation has the team pushing for an immediate answer. You notice yourself narrowing options."],
-["Trust question","A supervisee disagrees with a protocol and seems hesitant to say more because you are the supervisor."],
-["Follow-through gap","You told a supervisee you would get an answer about workload changes. Two meetings have passed and you still do not have one."],
+["Either/or pressure","A supervisee is dealing with a difficult client situation and the available choices are starting to sound all-or-nothing."],
+["Urgency pressure","A time-sensitive situation has everyone pushing for an immediate answer. You notice your own stress narrowing the options you can see."],
+["Protocol and power","A supervisee says a required protocol is causing problems. You hold positional power and there are limits on what you can change."],
+["Follow-through gap","You told a supervisee you would get an answer about a workload or staffing concern. Two meetings have passed and you still do not have one."],
 ["Identity in the room","You realize an assumption you made in supervision may have been shaped by your own cultural experience."]
 ];
 const dynamics=["Either/or pressure","Identity or power","Stress / activation","Trust or safety","Consistency / follow-through","System or policy constraint","Parallel process","Need for repair"];
 const strategies=[
-{n:"1",t:"Embracing Both/And Thinking",c:"#7A5A18",d:"Hold complexity, notice binary pressure, and make room for more than one truth.",p:"Try naming the pressure without rushing to collapse the situation into one right answer.",s:"I can see the impact this is having, and I also want us to slow down enough to notice the options we still have."},
-{n:"2",t:"Fostering Open Dialogue with Self-Awareness",c:"#8A4D3C",d:"Use the mirror of self-awareness and the window of dialogue. Notice your own activation, assumptions, identity, and power.",p:"Try naming what you notice in yourself before asking the other person to do more emotional work.",s:"I want to slow down because I notice I am bringing assumptions into this. Before I offer my perspective, what is your read on what is happening?"},
-{n:"3",t:"Building Relational Safety & Trust",c:"#0A6E82",d:"Treat trust as earned. Share power where you can, be clear about limits, and move away from punitive reflexes.",p:"Try naming positional power and making the next step more transparent.",s:"I hold positional power here, and I do not want that to keep us from talking plainly. Here is what I can change, what I cannot change, and where I can advocate."},
-{n:"4",t:"Cultivating Consistency & Transparency",c:"#386B59",d:"Build predictability and rhythm. Revisit commitments, explain delays, and make follow-through visible.",p:"Try naming the gap directly and making the next follow-up concrete.",s:"I said I would revisit this and I have not brought you an answer yet. I have not forgotten. Here is what I know, what I am still waiting on, and when we will check it again."}
+{n:"1",t:"Embracing Both/And Thinking",c:"#7A5A18",d:"Notice either/or pressure and make room for more than one truth or option.",p:"Name the pressure and slow the rush toward one right answer.",s:"I can see the impact this is having, and I also want us to slow down enough to notice the options we still have."},
+{n:"2",t:"Fostering Open Dialogue with Self-Awareness",c:"#8A4D3C",d:"Notice your own activation, assumptions, identity, and power while keeping dialogue open.",p:"Name what you notice in yourself before asking the supervisee to respond.",s:"I want to slow down because I notice I am bringing assumptions into this. Before I offer my perspective, what is your read on what is happening?"},
+{n:"3",t:"Building Relational Safety & Trust",c:"#0A6E82",d:"Treat trust as earned. Share power where you can, explain limits, and move away from punitive responses.",p:"Name positional power when it matters and make the next step clear.",s:"I hold positional power here, and I do not want that to keep us from talking plainly. Here is what I can change, what I cannot change, and where I can advocate."},
+{n:"4",t:"Cultivating Consistency & Transparency",c:"#386B59",d:"Build predictability and rhythm. Revisit commitments, explain delays, and follow through.",p:"Name the gap directly and set a clear follow-up.",s:"I said I would revisit this and I have not brought you an answer yet. I have not forgotten. Here is what I know, what I am still waiting on, and when we will check it again."}
 ];
 let state={scenario:"",dynamics:[],strategy:null};
 const sc=document.getElementById("scenarioChoices");
@@ -125,7 +125,7 @@ document.addEventListener("click",e=>{
  const back=e.target.closest("[data-back]");if(back)showStep(back.dataset.back);
 });
 document.querySelectorAll(".stepper button").forEach(b=>b.addEventListener("click",()=>showStep(b.dataset.step)));
-document.getElementById("showPossibility").addEventListener("click",()=>{const box=document.getElementById("possibility");box.hidden=false;const x=strategies[state.strategy??0];box.innerHTML="<strong>Possible direction, not a script to memorize:</strong><br>"+x.s+"<br><br><small>Adapt the language so it sounds like you and fits the actual relationship.</small>";});
+document.getElementById("showPossibility").addEventListener("click",()=>{const box=document.getElementById("possibility");box.hidden=false;const x=strategies[state.strategy??0];box.innerHTML="<strong>One possible direction:</strong><br>"+x.s+"<br><br><small>Use your own words and fit them to the actual relationship.</small>";});
 document.getElementById("makeSummary").addEventListener("click",()=>{const own=document.getElementById("ownScenario").value.trim();if(own)state.scenario=own;const s=strategies[state.strategy??0];const txt="SUPERVISION MOMENT\n"+(state.scenario||"My own practice example")+"\n\nDYNAMICS I NOTICED\n"+(state.dynamics.join(", ")||"Not selected")+"\n\nSTRATEGY I LED WITH\n"+s.t+"\n\nMY OPENING\n"+(document.getElementById("opening").value||"")+"\n\nBOTH / AND\n"+(document.getElementById("bothAnd").value||"")+"\n\nNEXT ACTION\n"+(document.getElementById("nextAction").value||"")+"\n\nFOLLOW-THROUGH\n"+(document.getElementById("followThrough").value||"");const box=document.getElementById("summaryBox");box.hidden=false;box.textContent=txt;});
 document.getElementById("resetAll").addEventListener("click",()=>{document.querySelectorAll("textarea").forEach(x=>x.value="");document.querySelectorAll(".choice").forEach(x=>x.classList.remove("selected"));document.querySelectorAll(".feedback,.summary").forEach(x=>x.hidden=true);state={scenario:"",dynamics:[],strategy:null};showStep(1);});
 </script>
