@@ -82,12 +82,12 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible,
 .practice-card dd{margin:4px 0 0;color:var(--ink)}
 .field{margin:18px 0}
 .field label,.field legend{display:block;color:var(--navy);font-weight:850;margin-bottom:7px}
-textarea,input[type="text"]{width:100%;border:2px solid #C6CFDA;border-radius:14px;padding:12px 14px;color:var(--ink);background:#fff}
+textarea,input[type="text"]{width:100%;border:2px solid #697487;border-radius:14px;padding:12px 14px;color:var(--ink);background:#fff}
 textarea{min-height:120px;resize:vertical}
 .choice-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
 .choice{position:relative}
 .choice input{position:absolute;opacity:0;pointer-events:none}
-.choice label{display:block;height:100%;border:2px solid #D4DCE6;border-radius:17px;padding:16px;background:#fff;cursor:pointer}
+.choice label{display:block;height:100%;border:2px solid #7A8796;border-radius:17px;padding:16px;background:#fff;cursor:pointer}
 .choice input:focus-visible+label{outline:3px solid var(--focus);outline-offset:4px;box-shadow:0 0 0 6px var(--focus-ring)}
 .choice input:checked+label{border-color:var(--teal);box-shadow:0 0 0 4px rgba(10,110,130,.10)}
 .choice label strong{display:block;color:var(--navy);margin-bottom:4px}
@@ -154,3 +154,6 @@ footer{padding:30px 22px;background:#F3EFE8;color:#5B6470;text-align:center}
 }
 .sr-only{position:absolute!important;width:1px!important;height:1px!important;padding:0!important;margin:-1px!important;overflow:hidden!important;clip:rect(0,0,0,0)!important;white-space:nowrap!important;border:0!important}
 main:focus{outline:none}
+
+textarea[aria-invalid="true"],input[aria-invalid="true"]{border-color:#8A4D3C;box-shadow:0 0 0 3px rgba(138,77,60,.16)}
+.field-error{color:#8A4D3C;font-weight:800;margin:6px 0 0}
