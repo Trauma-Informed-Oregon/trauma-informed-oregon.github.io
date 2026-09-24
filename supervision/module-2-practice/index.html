@@ -57,7 +57,8 @@
 <nav class="header-nav"><a href="/supervision/participant-guide/">Participant Guide</a><span class="pill">Nothing is submitted</span></nav>
 </div></header>
 
-<main id="main" class="lab-shell">
+<main id="main" class="lab-shell" tabindex="-1">
+<div id="labStatus" class="sr-only" role="status" aria-live="polite" aria-atomic="true"></div>
 <section class="lab-intro">
 <div><p class="eyebrow">Module 2 Strategy Lab</p><h1>Practice the judgment behind the script.</h1><p>Use a short hypothetical scenario during the training, or work through your own low-activation situation later. Your choices shape what appears next. There is no score.</p>
 <div class="callout privacy-note"><strong>Your work stays in this tab.</strong> Nothing is sent to TIO. Closing the tab clears what you typed. Print or save your practice summary if you want to keep it.</div></div>
@@ -65,7 +66,7 @@
 </section>
 
 <div class="progress" aria-label="Strategy Lab progress">
-<span class="active" data-progress="1">1. Situation</span><span data-progress="2">2. First move</span><span data-progress="3">3. Strategy lens</span><span data-progress="4">4. Your plan</span>
+<span class="active" data-progress="1" aria-current="step">1. Situation</span><span data-progress="2">2. First move</span><span data-progress="3">3. Strategy lens</span><span data-progress="4">4. Your plan</span>
 </div>
 
 <div class="lab-grid">
@@ -96,7 +97,7 @@
 <h2>What do you do first?</h2>
 <div class="scenario" id="scenarioCard"></div>
 <div class="decision-grid" id="decisionGrid"></div>
-<div id="decisionResult" class="hidden"></div>
+<div id="decisionResult" class="hidden" role="region" aria-live="polite" aria-atomic="true" tabindex="-1"></div>
 <div class="action-bar"><button class="button button-secondary" data-back="1">Back</button><button class="button button-primary hidden" id="toStrategy">Choose a strategy lens</button></div>
 </div>
 
@@ -113,7 +114,7 @@
 <p class="eyebrow">Step 3</p><h2>Choose the strategy you want to lead with.</h2>
 <p>These strategies overlap. Choosing one first does not mean it is the only strategy in the room.</p>
 <div class="strategy-grid" id="strategyGrid"></div>
-<div id="strategyHelp" class="hidden"></div>
+<div id="strategyHelp" class="hidden" role="region" aria-live="polite" aria-atomic="true" tabindex="-1"></div>
 <div class="action-bar"><button class="button button-secondary" data-back="2">Back</button><button class="button button-primary hidden" id="toPlan">Build my response</button></div>
 </div>
 
@@ -132,7 +133,7 @@
 </section>
 </div>
 
-<aside class="sidebar practice-summary" aria-live="polite">
+<aside class="sidebar practice-summary" aria-live="polite" aria-atomic="false">
 <h3>My practice summary</h3>
 <dl>
 <dt>Situation</dt><dd id="sumSituation" class="empty">Choose a situation to begin.</dd>
@@ -211,14 +212,23 @@ const strategies=[
 
 let state={mode:null,scenario:null,decision:null,dynamics:[],strategy:null};
 const $=s=>document.querySelector(s);
-const $$=s=>[...document.querySelectorAll(s)];
+const $=s=>[...document.querySelectorAll(s)];
+const reducedMotion=()=>window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+const motionBehavior=()=>reducedMotion()?"auto":"smooth";
+function announce(message){const el=$("#labStatus");el.textContent="";window.setTimeout(()=>{el.textContent=message},20)}
 
 function setText(id,text,empty=false){const el=$(id);el.textContent=text||"";el.classList.toggle("empty",empty)}
 function go(step){
-  $$(".step-panel").forEach(x=>x.classList.toggle("active",x.dataset.step==step));
-  $$("[data-progress]").forEach(x=>{const n=+x.dataset.progress;x.classList.toggle("active",n==step);x.classList.toggle("done",n<step)});
-  const h=document.querySelector('[data-step="'+step+'"] h2'); if(h){h.setAttribute("tabindex","-1");h.focus()}
-  window.scrollTo({top:90,behavior:"smooth"});
+  $(".step-panel").forEach(x=>x.classList.toggle("active",x.dataset.step==step));
+  $("[data-progress]").forEach(x=>{
+    const n=+x.dataset.progress;
+    x.classList.toggle("active",n==step);
+    x.classList.toggle("done",n<step);
+    if(n==step)x.setAttribute("aria-current","step"); else x.removeAttribute("aria-current");
+  });
+  const h=document.querySelector('[data-step="'+step+'"] h2');
+  if(h){h.setAttribute("tabindex","-1");h.focus()}
+  window.scrollTo({top:90,behavior:motionBehavior()});
 }
 function updateSummary(){
   let situation="";
@@ -233,29 +243,31 @@ function updateSummary(){
   setText("#sumFollow",$("#follow").value.trim()||"Not written yet.",!$("#follow").value.trim());
 }
 function renderScenarios(){
-  $("#scenarioGrid").innerHTML=scenarios.map((s,i)=>'<button class="scenario-choice" data-scenario="'+i+'"><strong>'+s.title+'</strong><span>'+s.situation+'</span></button>').join("");
+  $("#scenarioGrid").innerHTML=scenarios.map((s,i)=>'<button type="button" class="scenario-choice" data-scenario="'+i+'" aria-pressed="false"><strong>'+s.title+'</strong><span>'+s.situation+'</span></button>').join("");
 }
 function renderDynamics(){
   $("#dynamicGrid").innerHTML=dynamics.map((d,i)=>'<div class="choice"><input type="checkbox" id="dyn'+i+'" data-dyn="'+i+'"><label for="dyn'+i+'"><strong>'+d[0]+'</strong><span>'+d[1]+'</span></label></div>').join("");
 }
 function renderStrategies(){
-  $("#strategyGrid").innerHTML=strategies.map((s,i)=>'<button class="strategy-button" style="--accent:'+s.accent+'" data-strategy="'+i+'"><strong>'+s.title+'</strong><span>'+s.desc+'</span></button>').join("");
+  $("#strategyGrid").innerHTML=strategies.map((s,i)=>'<button type="button" class="strategy-button" style="--accent:'+s.accent+'" data-strategy="'+i+'" aria-pressed="false"><strong>'+s.title+'</strong><span>'+s.desc+'</span></button>').join("");
 }
 function renderDecision(){
   const s=scenarios[state.scenario];
   $("#scenarioCard").innerHTML='<h3>'+s.title+'</h3><p>'+s.situation+'</p>';
-  $("#decisionGrid").innerHTML=s.decisions.map((d,i)=>'<button class="decision" data-decision="'+i+'"><strong>'+d.label+'</strong><span>'+d.text+'</span></button>').join("");
+  $("#decisionGrid").innerHTML=s.decisions.map((d,i)=>'<button type="button" class="decision" data-decision="'+i+'" aria-pressed="false"><strong>'+d.label+'</strong><span>'+d.text+'</span></button>').join("");
   $("#decisionResult").classList.add("hidden");$("#toStrategy").classList.add("hidden");
 }
 function renderDecisionResult(){
   const d=scenarios[state.scenario].decisions[state.decision];
   $("#decisionResult").innerHTML='<div class="character"><div class="avatar">S</div><div><strong>One possible supervisee response</strong><p>'+d.reply+'</p></div></div><div class="coach" style="--accent:var(--teal)"><h3>What this move does</h3><div class="feedback-grid"><div class="feedback"><strong>It opens</strong>'+d.opens+'</div><div class="feedback"><strong>It may miss or risk</strong>'+d.risk+'</div></div><p><strong>Strategy showing up:</strong> '+d.strategy+'</p></div>';
   $("#decisionResult").classList.remove("hidden");$("#toStrategy").classList.remove("hidden");
+  announce("Feedback is available below your selected first move.");
 }
 function renderStrategyHelp(){
   const s=strategies[state.strategy];
   $("#strategyHelp").innerHTML='<div class="coach" style="border-left-color:'+s.accent+'"><h3>'+s.title+'</h3><p>'+s.desc+'</p><p><strong>Current Module 2 language to adapt:</strong></p><div class="source-lines">'+s.samples.map(x=>'<div class="source-line">'+x+'</div>').join("")+'</div></div>';
   $("#strategyHelp").classList.remove("hidden");$("#toPlan").classList.remove("hidden");
+  announce("Strategy guidance is available below your selected strategy.");
 }
 function renderSamples(){
   const s=strategies[state.strategy];
@@ -281,19 +293,19 @@ document.addEventListener("click",e=>{
       urgent:["Stress or activation: Someone’s system, maybe yours, is running hot enough to narrow thinking.","Either/or pressure: The options are starting to sound all-or-nothing.","Trust or safety: How safe enough does it feel to be honest in this relationship right now?"]
     };
     state.dynamics=scenarioDynamics[scenarios[state.scenario].id]||[];
-    $$(".scenario-choice").forEach(x=>x.classList.toggle("selected",x===sc));
+    $(".scenario-choice").forEach(x=>{const on=x===sc;x.classList.toggle("selected",on);x.setAttribute("aria-pressed",String(on))});
     updateSummary();renderDecision();$("#scenarioDecision").classList.remove("hidden");$("#ownRead").classList.add("hidden");go(2);
   }
   const dec=e.target.closest("[data-decision]");
   if(dec){
     state.decision=+dec.dataset.decision;
-    $$(".decision").forEach(x=>x.classList.toggle("selected",x===dec));
+    $(".decision").forEach(x=>{const on=x===dec;x.classList.toggle("selected",on);x.setAttribute("aria-pressed",String(on))});
     renderDecisionResult();updateSummary();
   }
   const st=e.target.closest("[data-strategy]");
   if(st){
     state.strategy=+st.dataset.strategy;
-    $$(".strategy-button").forEach(x=>x.classList.toggle("selected",x===st));
+    $(".strategy-button").forEach(x=>{const on=x===st;x.classList.toggle("selected",on);x.setAttribute("aria-pressed",String(on))});
     renderStrategyHelp();updateSummary();
   }
   const back=e.target.closest("[data-back]"); if(back)go(+back.dataset.back);
@@ -316,7 +328,15 @@ $("#ownToStrategy").addEventListener("click",()=>go(3));
 $("#toStrategy").addEventListener("click",()=>go(3));
 $("#toPlan").addEventListener("click",()=>{renderSamples();go(4)});
 ["opening","follow","truth1","truth2","support"].forEach(id=>$("#"+id).addEventListener("input",updateSummary));
-$("#finish").addEventListener("click",()=>{updateSummary();$(".practice-summary").scrollIntoView({behavior:"smooth",block:"start"})});
+$("#finish").addEventListener("click",()=>{
+  updateSummary();
+  const summary=$(".practice-summary");
+  summary.scrollIntoView({behavior:motionBehavior(),block:"start"});
+  const heading=summary.querySelector("h3");
+  heading.setAttribute("tabindex","-1");
+  heading.focus();
+  announce("Practice summary complete.");
+});
 $("#reset").addEventListener("click",()=>location.reload());
 </script>
 </body></html>
