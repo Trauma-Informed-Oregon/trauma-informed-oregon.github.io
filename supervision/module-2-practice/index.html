@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<meta name="theme-color" content="#192954">
+<title>Module 2 Practice Lab | TI Supervision</title>
+<style>
+:root{--navy:#192954;--teal:#0A6E82;--sand:#EDE6DC;--brown:#5D4935;--ink:#202633;--muted:#626b77;--soft:#f6f3ee;--focus:#f0b429}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;color:var(--ink);background:linear-gradient(145deg,#f8f5ef,#fff 54%,#eef5f6);line-height:1.5}
+a,button,textarea{outline-offset:4px}a:focus-visible,button:focus-visible,textarea:focus-visible{outline:3px solid var(--focus)}
+.skip{position:fixed;left:12px;top:8px;padding:9px 12px;background:#fff;border:2px solid var(--navy);border-radius:10px;transform:translateY(-150%);z-index:99}.skip:focus{transform:none}
+header{background:#fff;border-bottom:1px solid #dfe3e8;position:sticky;top:0;z-index:20}
+.header{max-width:1180px;margin:auto;padding:14px 22px;display:flex;align-items:center;justify-content:space-between;gap:18px}
+.brand{display:flex;gap:11px;align-items:center}.mark{width:44px;height:44px;border-radius:14px;background:var(--navy);color:white;display:grid;place-items:center;font-weight:900}.brand div{display:grid}.brand small{color:var(--muted)}
+main{max-width:1180px;margin:auto;padding:44px 22px 80px}
+.hero{display:grid;grid-template-columns:1.05fr .95fr;gap:40px;align-items:center;margin-bottom:36px}.hero h1{margin:0;color:var(--navy);font-size:clamp(2.7rem,5vw,5.3rem);line-height:.95;letter-spacing:-.045em}.hero p{font-size:1.08rem;color:#4e5969;max-width:720px}
+.orbit{min-height:330px;border-radius:34px;background:linear-gradient(145deg,var(--navy),var(--teal));position:relative;overflow:hidden;display:grid;place-items:center}.orbit:before,.orbit:after{content:"";position:absolute;border:1px solid rgba(255,255,255,.3);border-radius:50%}.orbit:before{width:250px;height:250px}.orbit:after{width:355px;height:355px}.orbit strong{position:relative;z-index:2;width:150px;height:150px;border-radius:50%;background:#fff;color:var(--navy);display:grid;place-items:center;text-align:center;padding:20px;box-shadow:0 20px 50px rgba(0,0,0,.2)}
+.notice{padding:16px 18px;border-radius:16px;background:#fff;border:1px solid #dfe3e8;color:#4e5969}
+.stepper{display:flex;gap:8px;flex-wrap:wrap;margin:28px 0}.stepper button{border:0;border-radius:999px;padding:10px 14px;background:#e8ecf2;color:var(--navy);font-weight:800;cursor:pointer}.stepper button[aria-current="step"]{background:var(--navy);color:#fff}
+.panel{display:none}.panel.active{display:block}
+.card{background:#fff;border:1px solid #dfe3e8;border-radius:24px;padding:28px;box-shadow:0 18px 45px rgba(25,41,84,.07);margin-bottom:22px}.card h2,.card h3{color:var(--navy);margin-top:0}.card h2{font-size:2rem}.card p{color:#4f5968}
+.scenarios,.strategies{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}.choice{display:block;text-align:left;width:100%;min-height:145px;padding:18px;border:2px solid #e1e5eb;border-radius:18px;background:#fff;cursor:pointer}.choice:hover{border-color:#aeb8c7}.choice.selected{border-color:var(--teal);box-shadow:0 0 0 4px rgba(10,110,130,.1)}.choice strong{display:block;color:var(--navy);font-size:1.03rem}.choice small{display:block;color:#687181;margin-top:6px}
+.strategy{border-left:7px solid var(--accent,var(--teal))}
+textarea{width:100%;min-height:120px;border:2px solid #d7dde5;border-radius:14px;padding:14px;font:inherit;resize:vertical}.short{min-height:82px}
+.actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px}.btn{border:0;border-radius:999px;padding:11px 17px;background:var(--navy);color:#fff;font-weight:850;cursor:pointer}.btn.secondary{background:#fff;color:var(--navy);border:2px solid var(--navy)}.btn.quiet{background:#edf1f5;color:var(--navy)}
+.feedback{margin-top:18px;padding:18px;border-radius:16px;background:#eef5f6;border-left:6px solid var(--teal)}.feedback[hidden]{display:none}.feedback strong{color:var(--navy)}
+.summary{white-space:pre-wrap;background:#f6f3ee;border-radius:16px;padding:18px}
+.pill{display:inline-block;padding:5px 9px;border-radius:999px;background:#edf1f5;color:#4f5968;font-size:.78rem;font-weight:850;margin-right:6px}
+footer{padding:28px 22px;background:#f2eee7;color:#5f6875;text-align:center}
+@media(max-width:760px){.hero{grid-template-columns:1fr}.orbit{min-height:270px}.scenarios,.strategies{grid-template-columns:1fr}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+@media print{header,.stepper,.actions,.orbit,.notice{display:none!important}.panel{display:block!important}.card{box-shadow:none;break-inside:avoid}}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to practice</a>
+<header><div class="header"><div class="brand"><span class="mark">TIO</span><div><strong>Trauma Informed Oregon</strong><small>TI Supervision • Module 2 Practice Lab</small></div></div><span class="pill">Nothing is submitted</span></div></header>
+<main id="main">
+<section class="hero">
+<div><p class="pill">Module 2</p><h1>Practice the relationship, not just the language.</h1><p>Work through a supervision moment using the four current strategies from Module 2. There is no score. The goal is to notice what the moment may need, practice language in your own voice, and leave with one usable next step.</p></div>
+<div class="orbit" aria-hidden="true"><strong>Notice<br>Choose<br>Practice<br>Adjust</strong></div>
+</section>
+<div class="notice"><strong>Use a low-activation example.</strong> Keep real situations at about a 2 or 3 on a 10-point activation scale and remove identifying details. You may also use one of the hypothetical scenarios below.</div>
+<nav class="stepper" aria-label="Practice steps">
+<button data-step="1" aria-current="step">1. Choose a moment</button>
+<button data-step="2">2. Read the moment</button>
+<button data-step="3">3. Choose a strategy</button>
+<button data-step="4">4. Build language</button>
+<button data-step="5">5. Carry it forward</button>
+</nav>
+
+<section class="panel active" data-panel="1">
+<div class="card"><h2>Choose a supervision moment</h2><p>Select a hypothetical situation, or use your own low-activation example.</p>
+<div class="scenarios" id="scenarioChoices"></div>
+<label for="ownScenario"><strong>Or describe your own example</strong></label>
+<textarea id="ownScenario" class="short" placeholder="Keep identifying details out. Describe only enough to practice."></textarea>
+<div class="actions"><button class="btn" data-next="2">Continue</button></div>
+</div></section>
+
+<section class="panel" data-panel="2">
+<div class="card"><h2>What is happening here?</h2><p>Before choosing a strategy, slow the moment down. Check any dynamics you want to keep in view.</p>
+<div id="dynamicChoices" class="strategies"></div>
+<label for="noticeText"><strong>What else do you notice?</strong></label>
+<textarea id="noticeText" class="short" placeholder="Identity, power, urgency, trust, workload, assumptions, policy constraints, parallel process..."></textarea>
+<div class="actions"><button class="btn secondary" data-back="1">Back</button><button class="btn" data-next="3">Choose a strategy</button></div>
+</div></section>
+
+<section class="panel" data-panel="3">
+<div class="card"><h2>Which strategy does this moment need?</h2><p>These strategies overlap. Choose the one you want to lead with first.</p><div class="strategies" id="strategyChoices"></div>
+<div id="strategyFeedback" class="feedback" hidden></div>
+<div class="actions"><button class="btn secondary" data-back="2">Back</button><button class="btn" data-next="4">Practice language</button></div>
+</div></section>
+
+<section class="panel" data-panel="4">
+<div class="card"><h2>Build language in your own voice</h2>
+<p id="languagePrompt">Write an opening sentence you could actually say.</p>
+<label for="opening"><strong>Your opening</strong></label>
+<textarea id="opening" placeholder="Write it the way you would actually say it."></textarea>
+<label for="bothAnd"><strong>What two truths might need to be held at the same time?</strong></label>
+<textarea id="bothAnd" class="short" placeholder="Example: The impact needs to be addressed AND the workload context matters."></textarea>
+<div class="actions"><button class="btn quiet" id="showPossibility">Show a possible direction</button></div>
+<div id="possibility" class="feedback" hidden></div>
+<div class="actions"><button class="btn secondary" data-back="3">Back</button><button class="btn" data-next="5">Carry it forward</button></div>
+</div></section>
+
+<section class="panel" data-panel="5">
+<div class="card"><h2>Carry it forward</h2>
+<label for="nextAction"><strong>One thing I will do in my next supervision session</strong></label>
+<textarea id="nextAction" class="short"></textarea>
+<label for="followThrough"><strong>How will I follow through so this does not disappear after one conversation?</strong></label>
+<textarea id="followThrough" class="short"></textarea>
+<div class="actions"><button class="btn" id="makeSummary">Create my practice summary</button><button class="btn secondary" onclick="window.print()">Print / Save PDF</button><button class="btn quiet" id="resetAll">Start over</button></div>
+<div id="summaryBox" class="summary" hidden></div>
+</div></section>
+</main>
+<footer>Trauma Informed Oregon • Portland State University • Equity-Centered Trauma Informed Supervision</footer>
+<script>
+const scenarios=[
+["Micromanaged","A supervisee says they feel micromanaged. You believed you were being supportive and available."],
+["Urgency pressure","A time-sensitive situation has the team pushing for an immediate answer. You notice yourself narrowing options."],
+["Trust question","A supervisee disagrees with a protocol and seems hesitant to say more because you are the supervisor."],
+["Follow-through gap","You told a supervisee you would get an answer about workload changes. Two meetings have passed and you still do not have one."],
+["Identity in the room","You realize an assumption you made in supervision may have been shaped by your own cultural experience."]
+];
+const dynamics=["Either/or pressure","Identity or power","Stress / activation","Trust or safety","Consistency / follow-through","System or policy constraint","Parallel process","Need for repair"];
+const strategies=[
+{n:"1",t:"Embracing Both/And Thinking",c:"#7A5A18",d:"Hold complexity, notice binary pressure, and make room for more than one truth.",p:"Try naming the pressure without rushing to collapse the situation into one right answer.",s:"I can see the impact this is having, and I also want us to slow down enough to notice the options we still have."},
+{n:"2",t:"Fostering Open Dialogue with Self-Awareness",c:"#8A4D3C",d:"Use the mirror of self-awareness and the window of dialogue. Notice your own activation, assumptions, identity, and power.",p:"Try naming what you notice in yourself before asking the other person to do more emotional work.",s:"I want to slow down because I notice I am bringing assumptions into this. Before I offer my perspective, what is your read on what is happening?"},
+{n:"3",t:"Building Relational Safety & Trust",c:"#0A6E82",d:"Treat trust as earned. Share power where you can, be clear about limits, and move away from punitive reflexes.",p:"Try naming positional power and making the next step more transparent.",s:"I hold positional power here, and I do not want that to keep us from talking plainly. Here is what I can change, what I cannot change, and where I can advocate."},
+{n:"4",t:"Cultivating Consistency & Transparency",c:"#386B59",d:"Build predictability and rhythm. Revisit commitments, explain delays, and make follow-through visible.",p:"Try naming the gap directly and making the next follow-up concrete.",s:"I said I would revisit this and I have not brought you an answer yet. I have not forgotten. Here is what I know, what I am still waiting on, and when we will check it again."}
+];
+let state={scenario:"",dynamics:[],strategy:null};
+const sc=document.getElementById("scenarioChoices");
+sc.innerHTML=scenarios.map((x,i)=>'<button class="choice" data-scenario="'+i+'"><strong>'+x[0]+'</strong><small>'+x[1]+'</small></button>').join("");
+document.getElementById("dynamicChoices").innerHTML=dynamics.map((d,i)=>'<button class="choice" data-dynamic="'+i+'"><strong>'+d+'</strong><small>Keep this dynamic in view as you practice.</small></button>').join("");
+document.getElementById("strategyChoices").innerHTML=strategies.map((s,i)=>'<button class="choice strategy" style="--accent:'+s.c+'" data-strategy="'+i+'"><strong>Strategy '+s.n+': '+s.t+'</strong><small>'+s.d+'</small></button>').join("");
+function showStep(n){document.querySelectorAll(".panel").forEach(p=>p.classList.toggle("active",p.dataset.panel==n));document.querySelectorAll(".stepper button").forEach(b=>{if(b.dataset.step==n)b.setAttribute("aria-current","step");else b.removeAttribute("aria-current")});window.scrollTo({top:120,behavior:"smooth"})}
+document.addEventListener("click",e=>{
+ const s=e.target.closest("[data-scenario]");if(s){document.querySelectorAll("[data-scenario]").forEach(x=>x.classList.remove("selected"));s.classList.add("selected");state.scenario=scenarios[+s.dataset.scenario][1];document.getElementById("ownScenario").value="";}
+ const d=e.target.closest("[data-dynamic]");if(d){d.classList.toggle("selected");const val=dynamics[+d.dataset.dynamic];state.dynamics=d.classList.contains("selected")?[...new Set([...state.dynamics,val])]:state.dynamics.filter(x=>x!==val);}
+ const st=e.target.closest("[data-strategy]");if(st){document.querySelectorAll("[data-strategy]").forEach(x=>x.classList.remove("selected"));st.classList.add("selected");state.strategy=+st.dataset.strategy;const x=strategies[state.strategy];const box=document.getElementById("strategyFeedback");box.hidden=false;box.innerHTML="<strong>"+x.t+"</strong><br>"+x.p;document.getElementById("languagePrompt").textContent="Write an opening sentence you could actually say using "+x.t+".";}
+ const next=e.target.closest("[data-next]");if(next){const own=document.getElementById("ownScenario").value.trim();if(own)state.scenario=own;showStep(next.dataset.next);}
+ const back=e.target.closest("[data-back]");if(back)showStep(back.dataset.back);
+});
+document.querySelectorAll(".stepper button").forEach(b=>b.addEventListener("click",()=>showStep(b.dataset.step)));
+document.getElementById("showPossibility").addEventListener("click",()=>{const box=document.getElementById("possibility");box.hidden=false;const x=strategies[state.strategy??0];box.innerHTML="<strong>Possible direction, not a script to memorize:</strong><br>"+x.s+"<br><br><small>Adapt the language so it sounds like you and fits the actual relationship.</small>";});
+document.getElementById("makeSummary").addEventListener("click",()=>{const own=document.getElementById("ownScenario").value.trim();if(own)state.scenario=own;const s=strategies[state.strategy??0];const txt="SUPERVISION MOMENT\n"+(state.scenario||"My own practice example")+"\n\nDYNAMICS I NOTICED\n"+(state.dynamics.join(", ")||"Not selected")+"\n\nSTRATEGY I LED WITH\n"+s.t+"\n\nMY OPENING\n"+(document.getElementById("opening").value||"")+"\n\nBOTH / AND\n"+(document.getElementById("bothAnd").value||"")+"\n\nNEXT ACTION\n"+(document.getElementById("nextAction").value||"")+"\n\nFOLLOW-THROUGH\n"+(document.getElementById("followThrough").value||"");const box=document.getElementById("summaryBox");box.hidden=false;box.textContent=txt;});
+document.getElementById("resetAll").addEventListener("click",()=>{document.querySelectorAll("textarea").forEach(x=>x.value="");document.querySelectorAll(".choice").forEach(x=>x.classList.remove("selected"));document.querySelectorAll(".feedback,.summary").forEach(x=>x.hidden=true);state={scenario:"",dynamics:[],strategy:null};showStep(1);});
+</script>
+</body></html>
