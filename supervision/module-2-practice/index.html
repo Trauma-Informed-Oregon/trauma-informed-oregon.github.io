@@ -1,132 +1,315 @@
 <!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="robots" content="noindex,nofollow">
-<meta name="theme-color" content="#192954">
-<title>Module 2 Practice Lab | TI Supervision</title>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex,nofollow">
+<title>Module 2 Strategy Lab | TI Supervision</title>
+<link rel="stylesheet" href="../learning.css">
 <style>
-:root{--navy:#192954;--teal:#0A6E82;--sand:#EDE6DC;--brown:#5D4935;--ink:#202633;--muted:#626b77;--soft:#f6f3ee;--focus:#f0b429}
-*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;color:var(--ink);background:linear-gradient(145deg,#f8f5ef,#fff 54%,#eef5f6);line-height:1.5}
-a,button,textarea{outline-offset:4px}a:focus-visible,button:focus-visible,textarea:focus-visible{outline:3px solid var(--focus)}
-.skip{position:fixed;left:12px;top:8px;padding:9px 12px;background:#fff;border:2px solid var(--navy);border-radius:10px;transform:translateY(-150%);z-index:99}.skip:focus{transform:none}
-header{background:#fff;border-bottom:1px solid #dfe3e8;position:sticky;top:0;z-index:20}
-.header{max-width:1180px;margin:auto;padding:14px 22px;display:flex;align-items:center;justify-content:space-between;gap:18px}
-.brand{display:flex;gap:11px;align-items:center}.mark{width:44px;height:44px;border-radius:14px;background:var(--navy);color:white;display:grid;place-items:center;font-weight:900}.brand div{display:grid}.brand small{color:var(--muted)}
-main{max-width:1180px;margin:auto;padding:44px 22px 80px}
-.hero{display:grid;grid-template-columns:1.05fr .95fr;gap:40px;align-items:center;margin-bottom:36px}.hero h1{margin:0;color:var(--navy);font-size:clamp(2.7rem,5vw,5.3rem);line-height:.95;letter-spacing:-.045em}.hero p{font-size:1.08rem;color:#4e5969;max-width:720px}
-.orbit{min-height:330px;border-radius:34px;background:linear-gradient(145deg,var(--navy),var(--teal));position:relative;overflow:hidden;display:grid;place-items:center}.orbit:before,.orbit:after{content:"";position:absolute;border:1px solid rgba(255,255,255,.3);border-radius:50%}.orbit:before{width:250px;height:250px}.orbit:after{width:355px;height:355px}.orbit strong{position:relative;z-index:2;width:150px;height:150px;border-radius:50%;background:#fff;color:var(--navy);display:grid;place-items:center;text-align:center;padding:20px;box-shadow:0 20px 50px rgba(0,0,0,.2)}
-.notice{padding:16px 18px;border-radius:16px;background:#fff;border:1px solid #dfe3e8;color:#4e5969}
-.stepper{display:flex;gap:8px;flex-wrap:wrap;margin:28px 0}.stepper button{border:0;border-radius:999px;padding:10px 14px;background:#e8ecf2;color:var(--navy);font-weight:800;cursor:pointer}.stepper button[aria-current="step"]{background:var(--navy);color:#fff}
-.panel{display:none}.panel.active{display:block}
-.card{background:#fff;border:1px solid #dfe3e8;border-radius:24px;padding:28px;box-shadow:0 18px 45px rgba(25,41,84,.07);margin-bottom:22px}.card h2,.card h3{color:var(--navy);margin-top:0}.card h2{font-size:2rem}.card p{color:#4f5968}
-.scenarios,.strategies{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}.choice{display:block;text-align:left;width:100%;min-height:145px;padding:18px;border:2px solid #e1e5eb;border-radius:18px;background:#fff;cursor:pointer}.choice:hover{border-color:#aeb8c7}.choice.selected{border-color:var(--teal);box-shadow:0 0 0 4px rgba(10,110,130,.1)}.choice strong{display:block;color:var(--navy);font-size:1.03rem}.choice small{display:block;color:#687181;margin-top:6px}
-.strategy{border-left:7px solid var(--accent,var(--teal))}
-textarea{width:100%;min-height:120px;border:2px solid #d7dde5;border-radius:14px;padding:14px;font:inherit;resize:vertical}.short{min-height:82px}
-.actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px}.btn{border:0;border-radius:999px;padding:11px 17px;background:var(--navy);color:#fff;font-weight:850;cursor:pointer}.btn.secondary{background:#fff;color:var(--navy);border:2px solid var(--navy)}.btn.quiet{background:#edf1f5;color:var(--navy)}
-.feedback{margin-top:18px;padding:18px;border-radius:16px;background:#eef5f6;border-left:6px solid var(--teal)}.feedback[hidden]{display:none}.feedback strong{color:var(--navy)}
-.summary{white-space:pre-wrap;background:#f6f3ee;border-radius:16px;padding:18px}
-.pill{display:inline-block;padding:5px 9px;border-radius:999px;background:#edf1f5;color:#4f5968;font-size:.78rem;font-weight:850;margin-right:6px}
-footer{padding:28px 22px;background:#f2eee7;color:#5f6875;text-align:center}
-@media(max-width:760px){.hero{grid-template-columns:1fr}.orbit{min-height:270px}.scenarios,.strategies{grid-template-columns:1fr}}
-@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
-@media print{header,.stepper,.actions,.orbit,.notice{display:none!important}.panel{display:block!important}.card{box-shadow:none;break-inside:avoid}}
+.lab-shell{max-width:1180px;margin:auto;padding:42px 22px 76px}
+.lab-intro{display:grid;grid-template-columns:1.05fr .95fr;gap:36px;align-items:center;margin-bottom:28px}
+.lab-intro h1{margin:0;color:var(--navy);font-size:clamp(2.8rem,5vw,5rem);line-height:.95;letter-spacing:-.045em}
+.lab-art{min-height:300px;border-radius:30px;background:linear-gradient(145deg,var(--navy),var(--teal));display:grid;place-items:center;position:relative;overflow:hidden}
+.lab-art:before,.lab-art:after{content:"";position:absolute;border-radius:50%;border:1px solid rgba(255,255,255,.28)}
+.lab-art:before{width:230px;height:230px}.lab-art:after{width:340px;height:340px}
+.lab-art svg{width:210px;position:relative;z-index:2;fill:none;stroke:#fff;stroke-width:7;stroke-linecap:round;stroke-linejoin:round}
+.lab-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:24px;align-items:start}
+.lab-main{min-width:0}
+.lab-panel{border:1px solid var(--line);border-radius:26px;background:#fff;padding:28px;box-shadow:0 16px 42px rgba(25,41,84,.06)}
+.lab-panel h2{margin:0 0 8px;color:var(--navy);font-size:2rem}
+.lab-panel>p{color:#566171}
+.step-panel{display:none}.step-panel.active{display:block}
+.scenario-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+.scenario-choice{border:2px solid #D7DFE8;border-radius:18px;padding:17px;background:#fff;text-align:left;cursor:pointer;min-height:150px}
+.scenario-choice:hover{border-color:#AAB8C8}
+.scenario-choice.selected{border-color:var(--teal);box-shadow:0 0 0 4px rgba(10,110,130,.10)}
+.scenario-choice strong{display:block;color:var(--navy);margin-bottom:5px}
+.scenario-choice span{display:block;color:#566171;font-size:.92rem}
+.decision-grid{display:grid;gap:12px}
+.decision{border:2px solid #D7DFE8;border-radius:18px;padding:16px;background:#fff;text-align:left;cursor:pointer}
+.decision:hover{border-color:#AAB8C8}.decision.selected{border-color:var(--teal);box-shadow:0 0 0 4px rgba(10,110,130,.10)}
+.decision strong{display:block;color:var(--navy);margin-bottom:5px}.decision span{color:#566171}
+.character{display:grid;grid-template-columns:52px 1fr;gap:13px;align-items:start;padding:16px;border-radius:18px;background:#F6F8FA;margin:14px 0}
+.avatar{width:52px;height:52px;border-radius:50%;background:var(--sand);display:grid;place-items:center;color:var(--navy);font-weight:950}
+.character p{margin:2px 0 0;color:#394556}
+.coach{margin-top:15px;border-radius:20px;background:#EEF5F6;padding:18px;border-left:7px solid var(--teal)}
+.coach h3{margin:0 0 8px;font-size:1rem}
+.strategy-button{display:block;width:100%;text-align:left;padding:17px;border:2px solid #D9E0E8;border-radius:18px;background:#fff;cursor:pointer;border-left:8px solid var(--accent)}
+.strategy-button.selected{box-shadow:0 0 0 4px rgba(25,41,84,.08);border-color:var(--accent)}
+.strategy-button strong{display:block;color:var(--navy)}.strategy-button span{display:block;color:#566171;margin-top:4px}
+.source-lines{display:grid;gap:9px;margin:14px 0}
+.source-line{padding:13px 14px;border-radius:14px;background:#F6F8FA;color:#384454}
+.joined{display:grid;grid-template-columns:1fr auto 1fr;gap:10px;align-items:center}
+.joined b{color:var(--navy)}
+.practice-summary{border-radius:24px;background:linear-gradient(145deg,#F8FAFB,#fff);border:1px solid var(--line);padding:22px}
+.practice-summary h3{margin:0;color:var(--navy)}
+.practice-summary .empty{color:#7B8491;font-style:italic}
+.practice-summary dl{margin:12px 0 0}.practice-summary dt{font-size:.75rem;font-weight:900;text-transform:uppercase;letter-spacing:.07em;color:#697487;margin-top:13px}.practice-summary dd{margin:3px 0 0;color:#283445}
+.mode-note{font-size:.9rem;color:#566171}
+@media(max-width:900px){.lab-intro,.lab-grid{grid-template-columns:1fr}.lab-art{min-height:240px}.sidebar{position:static}}
+@media(max-width:620px){.scenario-grid,.joined{grid-template-columns:1fr}.lab-shell{padding-inline:16px}.lab-panel{padding:20px}.progress{grid-template-columns:1fr 1fr}}
+@media print{.lab-art,.progress,.mode-grid,.decision-grid,.strategy-button,.source-lines,.action-bar,.privacy-note{display:none!important}.lab-grid{display:block}.lab-panel{box-shadow:none;border:0;padding:0}.step-panel{display:block!important}.practice-summary{margin-top:20px}}
 </style>
 </head>
 <body>
-<a class="skip" href="#main">Skip to practice</a>
-<header><div class="header"><div class="brand"><span class="mark">TIO</span><div><strong>Trauma Informed Oregon</strong><small>TI Supervision - Module 2 Practice Lab</small></div></div><span class="pill">Nothing is submitted</span></div></header>
-<main id="main">
-<section class="hero">
-<div><p class="pill">Module 2</p><h1>Practice what you would actually do and say.</h1><p>Work through a supervision moment using the four current strategies from Module 2. Notice what is shaping the moment, choose a strategy, practice an opening in your own voice, and decide how you will follow through.</p></div>
-<div class="orbit" aria-hidden="true"><strong>Notice<br>Choose<br>Practice<br>Adjust</strong></div>
+<a class="skip" href="#main">Skip to Strategy Lab</a>
+<header class="site-header"><div class="header-inner">
+<a class="brand" href="/supervision/participant-guide/"><strong>Trauma Informed Oregon</strong><small>TI Supervision - Module 2 Strategy Lab</small></a>
+<nav class="header-nav"><a href="/supervision/participant-guide/">Participant Guide</a><span class="pill">Nothing is submitted</span></nav>
+</div></header>
+
+<main id="main" class="lab-shell">
+<section class="lab-intro">
+<div><p class="eyebrow">Module 2 Strategy Lab</p><h1>Practice the judgment, not just the script.</h1><p>Use a short hypothetical scenario during the training, or work through your own low-activation situation later. Your choices shape what appears next. There is no score.</p>
+<div class="callout privacy-note"><strong>Your work stays in this tab.</strong> Nothing is sent to TIO. Closing the tab clears what you typed. Print or save your practice summary if you want to keep it.</div></div>
+<div class="lab-art" aria-hidden="true"><svg viewBox="0 0 220 220"><path d="M40 54h56l20 30h64v82H40z"/><circle cx="77" cy="110" r="22"/><path d="M99 110h43"/><path d="M130 92l18 18-18 18"/></svg></div>
 </section>
-<div class="notice"><strong>Use a low-activation example.</strong> Keep real situations at about a 2 or 3 on a 10-point activation scale and remove identifying details. You may also use one of the hypothetical scenarios below.</div>
-<nav class="stepper" aria-label="Practice steps">
-<button data-step="1" aria-current="step">1. Choose a moment</button>
-<button data-step="2">2. Read the moment</button>
-<button data-step="3">3. Choose a strategy</button>
-<button data-step="4">4. Build language</button>
-<button data-step="5">5. Follow through</button>
-</nav>
 
-<section class="panel active" data-panel="1">
-<div class="card"><h2>Choose a supervision moment</h2><p>Select a hypothetical situation, or use your own low-activation example.</p>
-<div class="scenarios" id="scenarioChoices"></div>
-<label for="ownScenario"><strong>Or describe your own example</strong></label>
-<textarea id="ownScenario" class="short" placeholder="Keep identifying details out. Describe only enough to practice."></textarea>
-<div class="actions"><button class="btn" data-next="2">Continue</button></div>
-</div></section>
+<div class="progress" aria-label="Strategy Lab progress">
+<span class="active" data-progress="1">1. Situation</span><span data-progress="2">2. First move</span><span data-progress="3">3. Strategy lens</span><span data-progress="4">4. Your plan</span>
+</div>
 
-<section class="panel" data-panel="2">
-<div class="card"><h2>What is happening here?</h2><p>Before choosing a strategy, slow the moment down. Check any dynamics you want to keep in view.</p>
-<div id="dynamicChoices" class="strategies"></div>
-<label for="noticeText"><strong>What else do you notice?</strong></label>
-<textarea id="noticeText" class="short" placeholder="Identity, power, urgency, trust, workload, assumptions, policy constraints, parallel process..."></textarea>
-<div class="actions"><button class="btn secondary" data-back="1">Back</button><button class="btn" data-next="3">Choose a strategy</button></div>
-</div></section>
+<div class="lab-grid">
+<div class="lab-main">
+<section class="lab-panel">
+<div class="step-panel active" data-step="1">
+<p class="eyebrow">Step 1</p><h2>Choose how you want to practice.</h2>
+<div class="mode-grid">
+<div class="mode"><h3>Practice a scenario</h3><p>Best for breakout rooms or a quick 8 to 12 minute practice. The supervisee response changes based on the move you choose.</p><button class="button button-primary" data-mode="scenario">Choose a scenario</button></div>
+<div class="mode"><h3>Work through my own situation</h3><p>Best between sessions. Use a de-identified example around a 2 or 3 on a 10-point activation scale.</p><button class="button button-secondary" data-mode="own">Use my situation</button></div>
+</div>
 
-<section class="panel" data-panel="3">
-<div class="card"><h2>Which strategy does this moment need?</h2><p>These strategies overlap. Choose the one you want to lead with first.</p><div class="strategies" id="strategyChoices"></div>
-<div id="strategyFeedback" class="feedback" hidden></div>
-<div class="actions"><button class="btn secondary" data-back="2">Back</button><button class="btn" data-next="4">Practice language</button></div>
-</div></section>
+<div id="scenarioSelect" class="hidden" style="margin-top:24px">
+<h3>Choose a hypothetical situation</h3>
+<p class="mode-note">These are fictional training scenarios. The supervisee responses illustrate one possible reaction, not a prediction of how a real person will respond.</p>
+<div class="scenario-grid" id="scenarioGrid"></div>
+</div>
 
-<section class="panel" data-panel="4">
-<div class="card"><h2>Build language in your own voice</h2>
-<p id="languagePrompt">Write an opening sentence you could actually say.</p>
-<label for="opening"><strong>Your opening</strong></label>
-<textarea id="opening" placeholder="Write it the way you would actually say it."></textarea>
-<label for="bothAnd"><strong>What two truths might need to be held at the same time?</strong></label>
-<textarea id="bothAnd" class="short" placeholder="Example: The concern needs attention, and the workload context also matters."></textarea>
-<div class="actions"><button class="btn quiet" id="showPossibility">Show a possible direction</button></div>
-<div id="possibility" class="feedback" hidden></div>
-<div class="actions"><button class="btn secondary" data-back="3">Back</button><button class="btn" data-next="5">Carry it forward</button></div>
-</div></section>
+<div id="ownStart" class="hidden" style="margin-top:24px">
+<div class="field"><label for="ownSituation">Describe the situation briefly</label><textarea id="ownSituation" placeholder="Remove names and identifying details."></textarea></div>
+<div class="action-bar"><button class="button button-primary" id="ownContinue">Continue</button></div>
+</div>
+</div>
 
-<section class="panel" data-panel="5">
-<div class="card"><h2>Plan your follow-through</h2>
-<label for="nextAction"><strong>One thing I will do in my next supervision session</strong></label>
-<textarea id="nextAction" class="short"></textarea>
-<label for="followThrough"><strong>What will I revisit, name, or do after this conversation?</strong></label>
-<textarea id="followThrough" class="short"></textarea>
-<div class="actions"><button class="btn" id="makeSummary">Create my practice summary</button><button class="btn secondary" onclick="window.print()">Print / Save PDF</button><button class="btn quiet" id="resetAll">Start over</button></div>
-<div id="summaryBox" class="summary" hidden></div>
-</div></section>
+<div class="step-panel" data-step="2">
+<p class="eyebrow">Step 2</p>
+<div id="scenarioDecision">
+<h2>What do you do first?</h2>
+<div class="scenario" id="scenarioCard"></div>
+<div class="decision-grid" id="decisionGrid"></div>
+<div id="decisionResult" class="hidden"></div>
+<div class="action-bar"><button class="button button-secondary" data-back="1">Back</button><button class="button button-primary hidden" id="toStrategy">Choose a strategy lens</button></div>
+</div>
+
+<div id="ownRead" class="hidden">
+<h2>Read the moment before you decide what to do.</h2>
+<p>Choose the dynamics you want to keep in view. Each one changes what deserves your attention.</p>
+<div class="choice-grid" id="dynamicGrid"></div>
+<div class="field"><label for="ownNotice">What else do you notice?</label><textarea id="ownNotice"></textarea></div>
+<div class="action-bar"><button class="button button-secondary" data-back="1">Back</button><button class="button button-primary" id="ownToStrategy">Choose a strategy lens</button></div>
+</div>
+</div>
+
+<div class="step-panel" data-step="3">
+<p class="eyebrow">Step 3</p><h2>Choose the strategy you want to lead with.</h2>
+<p>These strategies overlap. Choosing one first does not mean it is the only strategy in the room.</p>
+<div class="strategy-grid" id="strategyGrid"></div>
+<div id="strategyHelp" class="hidden"></div>
+<div class="action-bar"><button class="button button-secondary" data-back="2">Back</button><button class="button button-primary hidden" id="toPlan">Build my response</button></div>
+</div>
+
+<div class="step-panel" data-step="4">
+<p class="eyebrow">Step 4</p><h2>Build your response in your own voice.</h2>
+<div id="sampleArea"></div>
+<div class="field"><label for="opening">What would you actually say first?</label><textarea id="opening"></textarea></div>
+<div class="joined">
+<div class="field"><label for="truth1">One truth in the room</label><textarea id="truth1"></textarea></div><b>and</b>
+<div class="field"><label for="truth2">Another truth that also needs room</label><textarea id="truth2"></textarea></div>
+</div>
+<div class="field"><label for="follow">What will you revisit, name, or do after this conversation?</label><textarea id="follow"></textarea></div>
+<div class="field"><label for="support">What support, information, or authority do you need to follow through?</label><textarea id="support"></textarea></div>
+<div class="action-bar"><button class="button button-secondary" data-back="3">Back</button><button class="button button-primary" id="finish">Finish my practice summary</button><button class="button button-soft" onclick="window.print()">Print / Save PDF</button><button class="button button-plain" id="reset">Start over</button></div>
+</div>
+</section>
+</div>
+
+<aside class="sidebar practice-summary" aria-live="polite">
+<h3>My practice summary</h3>
+<dl>
+<dt>Situation</dt><dd id="sumSituation" class="empty">Choose a situation to begin.</dd>
+<dt>First move</dt><dd id="sumMove" class="empty">Not chosen yet.</dd>
+<dt>What I am keeping in view</dt><dd id="sumDynamics" class="empty">Not chosen yet.</dd>
+<dt>Strategy</dt><dd id="sumStrategy" class="empty">Not chosen yet.</dd>
+<dt>My opening</dt><dd id="sumOpening" class="empty">Not written yet.</dd>
+<dt>Follow-through</dt><dd id="sumFollow" class="empty">Not written yet.</dd>
+</dl>
+</aside>
+</div>
 </main>
 <footer>Trauma Informed Oregon - Portland State University - Equity-Centered Trauma Informed Supervision</footer>
+
 <script>
 const scenarios=[
-["Either/or pressure","A supervisee is dealing with a difficult client situation and the available choices are starting to sound all-or-nothing."],
-["Urgency pressure","A time-sensitive situation has everyone pushing for an immediate answer. You notice your own stress narrowing the options you can see."],
-["Protocol and power","A supervisee says a required protocol is causing problems. You hold positional power and there are limits on what you can change."],
-["Follow-through gap","You told a supervisee you would get an answer about a workload or staffing concern. Two meetings have passed and you still do not have one."],
-["Identity in the room","You realize an assumption you made in supervision may have been shaped by your own cultural experience."]
+{
+ id:"follow",title:"The follow-through gap",
+ situation:"A supervisee has raised a workload concern more than once. You said you would check with leadership. You still do not have an answer. Today they say, “I keep bringing this up and nothing changes.”",
+ decisions:[
+  {label:"Focus on what they can control",text:"I know this is frustrating. Let’s focus on what you can change in your own workflow while leadership sorts this out.",reply:"I’ve already changed what I can. I’m not sure what else you want me to do.",opens:"It moves toward action and names that leadership is part of the picture.",risk:"It may shift responsibility back to the supervisee before you address your own follow-through.",strategy:"Consistency & Transparency"},
+  {label:"Name the gap directly",text:"You’re right. I told you I would follow up and I have not given you an update. I still do not have an answer. Let’s look at what we can change now and set a time to revisit the rest.",reply:"That helps. I mostly needed to know it had not disappeared.",opens:"It makes your follow-through visible and keeps the system constraint in view.",risk:"The relationship still depends on you returning to the issue when you said you would.",strategy:"Consistency & Transparency"},
+  {label:"Open the conversation",text:"I can hear how frustrated you are. What would make this feel more manageable right now?",reply:"I need fewer cases, but I do not know if that is even possible.",opens:"It gives the supervisee room to name the need.",risk:"If you stop here, it can sound like they are responsible for solving a workload problem that may be organizational.",strategy:"Open Dialogue with Self-Awareness"},
+  {label:"Normalize the workload",text:"Everyone is carrying a lot right now. I need you to hang in there while leadership figures it out.",reply:"Okay. I guess there is nothing else to say.",opens:"It names that the pressure is broader than one person.",risk:"It can close dialogue and minimize the specific concern the supervisee has repeatedly raised.",strategy:"Relational Safety & Trust"}
+ ]
+},
+{
+ id:"protocol",title:"Protocol and power",
+ situation:"A supervisee says a required protocol is getting in the way of client engagement. You understand the concern, and you also know the protocol is tied to a funding requirement you cannot simply ignore.",
+ decisions:[
+  {label:"Lead with the rule",text:"We have to follow the protocol. It is tied to funding, so there is not much to discuss.",reply:"Got it. I will just do what the protocol says.",opens:"It is clear about a real limit.",risk:"It may close off useful information about where flexibility or advocacy could still exist.",strategy:"Relational Safety & Trust"},
+  {label:"Hold both realities",text:"I hear the concern. The funding requirement is real, and I do not want us to stop there. Let’s look at where there is flexibility and what I can take upward.",reply:"That would help. I do not expect you to fix it, but I want the concern taken seriously.",opens:"It keeps the constraint and the supervisee’s experience in the same conversation.",risk:"You will need to be clear about what you can actually advocate for and then follow through.",strategy:"Both/And Thinking"},
+  {label:"Ask them to solve it",text:"What do you think we should do instead?",reply:"I have ideas, but I am not sure what is actually allowed.",opens:"It invites the supervisee’s knowledge and perspective.",risk:"Without naming the limits you hold as supervisor, it can leave them carrying the burden of figuring out the system.",strategy:"Open Dialogue with Self-Awareness"},
+  {label:"Document and move on",text:"Write up the concern and send it to me. I will keep it on file.",reply:"Okay. Should I expect anything to happen after that?",opens:"It creates a record of the concern.",risk:"Documentation without a clear next step can feel like the concern disappeared into a process.",strategy:"Consistency & Transparency"}
+ ]
+},
+{
+ id:"assumption",title:"An assumption in the room",
+ situation:"Halfway through supervision, you realize you made an assumption about a supervisee’s experience based on your own cultural frame. The supervisee has gone quiet.",
+ decisions:[
+  {label:"Keep going",text:"Finish the agenda and come back to it later if it still feels important.",reply:"The supervisee answers the remaining questions briefly and does not raise the moment again.",opens:"It keeps the meeting moving.",risk:"The silence may become part of the relationship if the assumption is never named.",strategy:"Open Dialogue with Self-Awareness"},
+  {label:"Name what you noticed",text:"I just realized I made an assumption based on my own experience. I want to stop and correct that. Is it okay if I start that part again?",reply:"Yes. I noticed it too. Starting over would help.",opens:"It names your part without requiring the supervisee to educate you first.",risk:"Repair depends on what you do next, not only on saying the right sentence.",strategy:"Open Dialogue with Self-Awareness"},
+  {label:"Ask for education",text:"I think I may be missing something culturally. Can you explain what I got wrong?",reply:"I can, but I do not really want to spend supervision teaching you about my culture.",opens:"It acknowledges that your understanding may be incomplete.",risk:"It can shift the work of repairing your assumption onto the supervisee.",strategy:"Relational Safety & Trust"},
+  {label:"Apologize generally",text:"I am sorry if that came across wrong. That was not my intention.",reply:"Thanks.",opens:"It acknowledges that something may have landed poorly.",risk:"It centers intent and stays vague about the assumption you actually noticed.",strategy:"Open Dialogue with Self-Awareness"}
+ ]
+},
+{
+ id:"urgent",title:"Urgency and activation",
+ situation:"A time-sensitive problem lands during supervision. You notice your own stress rising and the conversation is getting more binary by the minute.",
+ decisions:[
+  {label:"Push through",text:"We do not have time to slow down. Let’s make the call and keep moving.",reply:"The supervisee agrees, but the options on the table stay narrow.",opens:"It responds to real time pressure.",risk:"Urgency can make binary thinking feel like the only available thinking.",strategy:"Both/And Thinking"},
+  {label:"Take five minutes",text:"This is important and time-sensitive. I also notice I am getting activated. I want five minutes so we can make a grounded decision.",reply:"Yes. I could use that too.",opens:"It names your own state and protects decision quality without denying the urgency.",risk:"The pause still needs a clear return point so it does not become avoidance.",strategy:"Open Dialogue with Self-Awareness"},
+  {label:"Hand off the decision",text:"I am too stressed to think clearly. Tell me what you think we should do and I will go with it.",reply:"I can give you my read, but I do not want to make the whole call by myself.",opens:"It admits that your decision-making capacity is affected.",risk:"It may transfer supervisory responsibility rather than sharing power intentionally.",strategy:"Relational Safety & Trust"},
+  {label:"Widen the options",text:"Before we choose, let’s name the two options we keep circling and see if there is a third path we have not considered.",reply:"I can think of one option we have not talked about yet.",opens:"It interrupts either/or pressure and creates room for another possibility.",risk:"If the situation is truly time-critical, the exploration needs a clear boundary.",strategy:"Both/And Thinking"}
+ ]
+}
 ];
-const dynamics=["Either/or pressure","Identity or power","Stress / activation","Trust or safety","Consistency / follow-through","System or policy constraint","Parallel process","Need for repair"];
+
+const dynamics=[
+["Either/or pressure","The options are starting to sound all-or-nothing."],
+["Identity or power","Who holds power here, and whose norms or expectations are shaping the moment?"],
+["Stress or activation","Someone’s system, maybe yours, is running hot enough to narrow thinking."],
+["Trust or safety","How safe enough does it feel to be honest in this relationship right now?"],
+["Consistency or follow-through","Something promised, expected, or previously named has not happened yet."],
+["System or policy constraint","Part of the problem is outside either person’s direct control."],
+["Parallel process","How this moment is handled may travel to other relationships downstream."],
+["Need for repair","Something in the relationship may need to be named, corrected, or revisited."]
+];
+
 const strategies=[
-{n:"1",t:"Embracing Both/And Thinking",c:"#7A5A18",d:"Notice either/or pressure and make room for more than one truth or option.",p:"Name the pressure and slow the rush toward one right answer.",s:"I can see the impact this is having, and I also want us to slow down enough to notice the options we still have."},
-{n:"2",t:"Fostering Open Dialogue with Self-Awareness",c:"#8A4D3C",d:"Notice your own activation, assumptions, identity, and power while keeping dialogue open.",p:"Name what you notice in yourself before asking the supervisee to respond.",s:"I want to slow down because I notice I am bringing assumptions into this. Before I offer my perspective, what is your read on what is happening?"},
-{n:"3",t:"Building Relational Safety & Trust",c:"#0A6E82",d:"Treat trust as earned. Share power where you can, explain limits, and move away from punitive responses.",p:"Name positional power when it matters and make the next step clear.",s:"I hold positional power here, and I do not want that to keep us from talking plainly. Here is what I can change, what I cannot change, and where I can advocate."},
-{n:"4",t:"Cultivating Consistency & Transparency",c:"#386B59",d:"Build predictability and rhythm. Revisit commitments, explain delays, and follow through.",p:"Name the gap directly and set a clear follow-up.",s:"I said I would revisit this and I have not brought you an answer yet. I have not forgotten. Here is what I know, what I am still waiting on, and when we will check it again."}
+{title:"Embracing Both/And Thinking",accent:"#B68B35",desc:"Notice either/or pressure and make room for more than one truth, need, or option.",samples:["“I wonder if there may actually be a few more options... that don’t feel so black and white?”","“This feels like one of those times where... pressures us to rush to react.”"]},
+{title:"Fostering Open Dialogue with Self-Awareness",accent:"#8A4D3C",desc:"Notice your own activation, assumptions, identity, and power while keeping dialogue open.",samples:["“I just realized I’m making assumptions... Is it ok if I start over?”","“I know this is important and we need to act quickly; and, I want us to make grounded... decisions.”"]},
+{title:"Building Relational Safety & Trust",accent:"#0A6E82",desc:"Treat trust as earned. Share power where possible, explain limits, and move away from punitive responses.",samples:["“Trust is earned over time, with action-based evidence. It’s part of my job to earn yours.”","“Conflict and tension will come up here. I want us to be proactive rather than avoidant.”"]},
+{title:"Cultivating Consistency & Transparency",accent:"#386B59",desc:"Build predictability. Revisit commitments, explain delays, and follow through.",samples:["“I wish I had an answer. Leadership is still waiting on the budget.”","“I know I mentioned we’d revisit this. I haven’t forgotten.”"]}
 ];
-let state={scenario:"",dynamics:[],strategy:null};
-const sc=document.getElementById("scenarioChoices");
-sc.innerHTML=scenarios.map((x,i)=>'<button class="choice" data-scenario="'+i+'"><strong>'+x[0]+'</strong><small>'+x[1]+'</small></button>').join("");
-document.getElementById("dynamicChoices").innerHTML=dynamics.map((d,i)=>'<button class="choice" data-dynamic="'+i+'"><strong>'+d+'</strong><small>Keep this dynamic in view as you practice.</small></button>').join("");
-document.getElementById("strategyChoices").innerHTML=strategies.map((s,i)=>'<button class="choice strategy" style="--accent:'+s.c+'" data-strategy="'+i+'"><strong>Strategy '+s.n+': '+s.t+'</strong><small>'+s.d+'</small></button>').join("");
-function showStep(n){document.querySelectorAll(".panel").forEach(p=>p.classList.toggle("active",p.dataset.panel==n));document.querySelectorAll(".stepper button").forEach(b=>{if(b.dataset.step==n)b.setAttribute("aria-current","step");else b.removeAttribute("aria-current")});window.scrollTo({top:120,behavior:"smooth"})}
+
+let state={mode:null,scenario:null,decision:null,dynamics:[],strategy:null};
+const $=s=>document.querySelector(s);
+const $$=s=>[...document.querySelectorAll(s)];
+
+function setText(id,text,empty=false){const el=$(id);el.textContent=text||"";el.classList.toggle("empty",empty)}
+function go(step){
+  $$(".step-panel").forEach(x=>x.classList.toggle("active",x.dataset.step==step));
+  $$("[data-progress]").forEach(x=>{const n=+x.dataset.progress;x.classList.toggle("active",n==step);x.classList.toggle("done",n<step)});
+  const h=document.querySelector('[data-step="'+step+'"] h2'); if(h){h.setAttribute("tabindex","-1");h.focus()}
+  window.scrollTo({top:90,behavior:"smooth"});
+}
+function updateSummary(){
+  let situation="";
+  if(state.mode==="scenario"&&state.scenario!==null)situation=scenarios[state.scenario].title+": "+scenarios[state.scenario].situation;
+  if(state.mode==="own")situation=$("#ownSituation").value.trim();
+  setText("#sumSituation",situation||"Choose a situation to begin.",!situation);
+  let move=state.decision!==null&&state.scenario!==null?scenarios[state.scenario].decisions[state.decision].text:"";
+  setText("#sumMove",move||"Not chosen yet.",!move);
+  setText("#sumDynamics",state.dynamics.length?state.dynamics.join("; "):"Not chosen yet.",!state.dynamics.length);
+  setText("#sumStrategy",state.strategy!==null?strategies[state.strategy].title:"Not chosen yet.",state.strategy===null);
+  setText("#sumOpening",$("#opening").value.trim()||"Not written yet.",!$("#opening").value.trim());
+  setText("#sumFollow",$("#follow").value.trim()||"Not written yet.",!$("#follow").value.trim());
+}
+function renderScenarios(){
+  $("#scenarioGrid").innerHTML=scenarios.map((s,i)=>'<button class="scenario-choice" data-scenario="'+i+'"><strong>'+s.title+'</strong><span>'+s.situation+'</span></button>').join("");
+}
+function renderDynamics(){
+  $("#dynamicGrid").innerHTML=dynamics.map((d,i)=>'<div class="choice"><input type="checkbox" id="dyn'+i+'" data-dyn="'+i+'"><label for="dyn'+i+'"><strong>'+d[0]+'</strong><span>'+d[1]+'</span></label></div>').join("");
+}
+function renderStrategies(){
+  $("#strategyGrid").innerHTML=strategies.map((s,i)=>'<button class="strategy-button" style="--accent:'+s.accent+'" data-strategy="'+i+'"><strong>'+s.title+'</strong><span>'+s.desc+'</span></button>').join("");
+}
+function renderDecision(){
+  const s=scenarios[state.scenario];
+  $("#scenarioCard").innerHTML='<h3>'+s.title+'</h3><p>'+s.situation+'</p>';
+  $("#decisionGrid").innerHTML=s.decisions.map((d,i)=>'<button class="decision" data-decision="'+i+'"><strong>'+d.label+'</strong><span>'+d.text+'</span></button>').join("");
+  $("#decisionResult").classList.add("hidden");$("#toStrategy").classList.add("hidden");
+}
+function renderDecisionResult(){
+  const d=scenarios[state.scenario].decisions[state.decision];
+  $("#decisionResult").innerHTML='<div class="character"><div class="avatar">S</div><div><strong>One possible supervisee response</strong><p>'+d.reply+'</p></div></div><div class="coach" style="--accent:var(--teal)"><h3>What this move does</h3><div class="feedback-grid"><div class="feedback"><strong>It opens</strong>'+d.opens+'</div><div class="feedback"><strong>It may miss or risk</strong>'+d.risk+'</div></div><p><strong>Strategy showing up:</strong> '+d.strategy+'</p></div>';
+  $("#decisionResult").classList.remove("hidden");$("#toStrategy").classList.remove("hidden");
+}
+function renderStrategyHelp(){
+  const s=strategies[state.strategy];
+  $("#strategyHelp").innerHTML='<div class="coach" style="border-left-color:'+s.accent+'"><h3>'+s.title+'</h3><p>'+s.desc+'</p><p><strong>Current Module 2 language to adapt:</strong></p><div class="source-lines">'+s.samples.map(x=>'<div class="source-line">'+x+'</div>').join("")+'</div></div>';
+  $("#strategyHelp").classList.remove("hidden");$("#toPlan").classList.remove("hidden");
+}
+function renderSamples(){
+  const s=strategies[state.strategy];
+  $("#sampleArea").innerHTML='<div class="callout"><strong>From the current Module 2 deck. Adapt this language to your voice and relationship.</strong><div class="source-lines">'+s.samples.map(x=>'<div class="source-line">'+x+'</div>').join("")+'</div></div>';
+}
+
+renderScenarios();renderDynamics();renderStrategies();updateSummary();
+
 document.addEventListener("click",e=>{
- const s=e.target.closest("[data-scenario]");if(s){document.querySelectorAll("[data-scenario]").forEach(x=>x.classList.remove("selected"));s.classList.add("selected");state.scenario=scenarios[+s.dataset.scenario][1];document.getElementById("ownScenario").value="";}
- const d=e.target.closest("[data-dynamic]");if(d){d.classList.toggle("selected");const val=dynamics[+d.dataset.dynamic];state.dynamics=d.classList.contains("selected")?[...new Set([...state.dynamics,val])]:state.dynamics.filter(x=>x!==val);}
- const st=e.target.closest("[data-strategy]");if(st){document.querySelectorAll("[data-strategy]").forEach(x=>x.classList.remove("selected"));st.classList.add("selected");state.strategy=+st.dataset.strategy;const x=strategies[state.strategy];const box=document.getElementById("strategyFeedback");box.hidden=false;box.innerHTML="<strong>"+x.t+"</strong><br>"+x.p;document.getElementById("languagePrompt").textContent="Write an opening sentence you could actually say using "+x.t+".";}
- const next=e.target.closest("[data-next]");if(next){const own=document.getElementById("ownScenario").value.trim();if(own)state.scenario=own;showStep(next.dataset.next);}
- const back=e.target.closest("[data-back]");if(back)showStep(back.dataset.back);
+  const mode=e.target.closest("[data-mode]");
+  if(mode){
+    state.mode=mode.dataset.mode;
+    $("#scenarioSelect").classList.toggle("hidden",state.mode!=="scenario");
+    $("#ownStart").classList.toggle("hidden",state.mode!=="own");
+  }
+  const sc=e.target.closest("[data-scenario]");
+  if(sc){
+    state.scenario=+sc.dataset.scenario;state.decision=null;state.dynamics=[];
+    $$(".scenario-choice").forEach(x=>x.classList.toggle("selected",x===sc));
+    updateSummary();renderDecision();$("#scenarioDecision").classList.remove("hidden");$("#ownRead").classList.add("hidden");go(2);
+  }
+  const dec=e.target.closest("[data-decision]");
+  if(dec){
+    state.decision=+dec.dataset.decision;
+    $$(".decision").forEach(x=>x.classList.toggle("selected",x===dec));
+    renderDecisionResult();updateSummary();
+  }
+  const st=e.target.closest("[data-strategy]");
+  if(st){
+    state.strategy=+st.dataset.strategy;
+    $$(".strategy-button").forEach(x=>x.classList.toggle("selected",x===st));
+    renderStrategyHelp();updateSummary();
+  }
+  const back=e.target.closest("[data-back]"); if(back)go(+back.dataset.back);
 });
-document.querySelectorAll(".stepper button").forEach(b=>b.addEventListener("click",()=>showStep(b.dataset.step)));
-document.getElementById("showPossibility").addEventListener("click",()=>{const box=document.getElementById("possibility");box.hidden=false;const x=strategies[state.strategy??0];box.innerHTML="<strong>One possible direction:</strong><br>"+x.s+"<br><br><small>Use your own words and fit them to the actual relationship.</small>";});
-document.getElementById("makeSummary").addEventListener("click",()=>{const own=document.getElementById("ownScenario").value.trim();if(own)state.scenario=own;const s=strategies[state.strategy??0];const txt="SUPERVISION MOMENT\n"+(state.scenario||"My own practice example")+"\n\nDYNAMICS I NOTICED\n"+(state.dynamics.join(", ")||"Not selected")+"\n\nSTRATEGY I LED WITH\n"+s.t+"\n\nMY OPENING\n"+(document.getElementById("opening").value||"")+"\n\nBOTH / AND\n"+(document.getElementById("bothAnd").value||"")+"\n\nNEXT ACTION\n"+(document.getElementById("nextAction").value||"")+"\n\nFOLLOW-THROUGH\n"+(document.getElementById("followThrough").value||"");const box=document.getElementById("summaryBox");box.hidden=false;box.textContent=txt;});
-document.getElementById("resetAll").addEventListener("click",()=>{document.querySelectorAll("textarea").forEach(x=>x.value="");document.querySelectorAll(".choice").forEach(x=>x.classList.remove("selected"));document.querySelectorAll(".feedback,.summary").forEach(x=>x.hidden=true);state={scenario:"",dynamics:[],strategy:null};showStep(1);});
+
+$("#ownContinue").addEventListener("click",()=>{
+  if(!$("#ownSituation").value.trim())return;
+  state.mode="own";state.scenario=null;state.decision=null;
+  $("#scenarioDecision").classList.add("hidden");$("#ownRead").classList.remove("hidden");updateSummary();go(2);
+});
+$("#dynamicGrid").addEventListener("change",e=>{
+  if(!e.target.matches("[data-dyn]"))return;
+  const d=dynamics[+e.target.dataset.dyn];
+  state.dynamics=e.target.checked?[...state.dynamics,d[0]+": "+d[1]]:state.dynamics.filter(x=>!x.startsWith(d[0]+":"));
+  updateSummary();
+});
+$("#ownNotice").addEventListener("input",updateSummary);
+$("#ownSituation").addEventListener("input",updateSummary);
+$("#ownToStrategy").addEventListener("click",()=>go(3));
+$("#toStrategy").addEventListener("click",()=>go(3));
+$("#toPlan").addEventListener("click",()=>{renderSamples();go(4)});
+["opening","follow","truth1","truth2","support"].forEach(id=>$("#"+id).addEventListener("input",updateSummary));
+$("#finish").addEventListener("click",()=>{updateSummary();$(".practice-summary").scrollIntoView({behavior:"smooth",block:"start"})});
+$("#reset").addEventListener("click",()=>location.reload());
 </script>
 </body></html>
