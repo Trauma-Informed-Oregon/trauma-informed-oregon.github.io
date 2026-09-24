@@ -273,7 +273,14 @@ document.addEventListener("click",e=>{
   }
   const sc=e.target.closest("[data-scenario]");
   if(sc){
-    state.scenario=+sc.dataset.scenario;state.decision=null;state.dynamics=[];
+    state.scenario=+sc.dataset.scenario;state.decision=null;
+    const scenarioDynamics={
+      follow:["Consistency or follow-through: Something promised, expected, or previously named has not happened yet.","System or policy constraint: Part of the problem is outside either person’s direct control.","Trust or safety: How safe enough does it feel to be honest in this relationship right now?"],
+      protocol:["System or policy constraint: Part of the problem is outside either person’s direct control.","Identity or power: Who holds power here, and whose norms or expectations are shaping the moment?","Either/or pressure: The options are starting to sound all-or-nothing."],
+      assumption:["Identity or power: Who holds power here, and whose norms or expectations are shaping the moment?","Need for repair: Something in the relationship may need to be named, corrected, or revisited.","Trust or safety: How safe enough does it feel to be honest in this relationship right now?"],
+      urgent:["Stress or activation: Someone’s system, maybe yours, is running hot enough to narrow thinking.","Either/or pressure: The options are starting to sound all-or-nothing.","Trust or safety: How safe enough does it feel to be honest in this relationship right now?"]
+    };
+    state.dynamics=scenarioDynamics[scenarios[state.scenario].id]||[];
     $$(".scenario-choice").forEach(x=>x.classList.toggle("selected",x===sc));
     updateSummary();renderDecision();$("#scenarioDecision").classList.remove("hidden");$("#ownRead").classList.add("hidden");go(2);
   }
