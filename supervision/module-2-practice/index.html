@@ -312,7 +312,14 @@ document.addEventListener("click",e=>{
 });
 
 $("#ownContinue").addEventListener("click",()=>{
-  if(!$("#ownSituation").value.trim())return;
+  const field=$("#ownSituation");
+  if(!field.value.trim()){
+    field.setAttribute("aria-invalid","true");
+    announce("Describe the situation briefly before continuing.");
+    field.focus();
+    return;
+  }
+  field.removeAttribute("aria-invalid");
   state.mode="own";state.scenario=null;state.decision=null;
   $("#scenarioDecision").classList.add("hidden");$("#ownRead").classList.remove("hidden");updateSummary();go(2);
 });
@@ -323,7 +330,7 @@ $("#dynamicGrid").addEventListener("change",e=>{
   updateSummary();
 });
 $("#ownNotice").addEventListener("input",updateSummary);
-$("#ownSituation").addEventListener("input",updateSummary);
+$("#ownSituation").addEventListener("input",()=>{if($("#ownSituation").value.trim())$("#ownSituation").removeAttribute("aria-invalid");updateSummary()});
 $("#ownToStrategy").addEventListener("click",()=>go(3));
 $("#toStrategy").addEventListener("click",()=>go(3));
 $("#toPlan").addEventListener("click",()=>{renderSamples();go(4)});
