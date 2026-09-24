@@ -212,7 +212,7 @@ const strategies=[
 
 let state={mode:null,scenario:null,decision:null,dynamics:[],strategy:null};
 const $=s=>document.querySelector(s);
-const $=s=>[...document.querySelectorAll(s)];
+const $$=s=>[...document.querySelectorAll(s)];
 const reducedMotion=()=>window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 const motionBehavior=()=>reducedMotion()?"auto":"smooth";
 function announce(message){const el=$("#labStatus");el.textContent="";window.setTimeout(()=>{el.textContent=message},20)}
