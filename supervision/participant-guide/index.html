@@ -71,6 +71,25 @@
 .motif-copy strong{font-size:clamp(1.8rem,3vw,3rem);line-height:1.02}
 .series-card{cursor:default}
 .resource-link{cursor:default}
+
+:root{
+  --tio-teal:#058AB1;
+  --tio-brown:#355166;
+  --tio-gray:#C6D8E1;
+  --tio-yellow:#FFD054;
+  --tio-orange:#A44624;
+}
+body{color:var(--tio-brown)}
+.pg-hero h1,.section h2,.start-step h3,.series-card strong,.agreement strong{color:var(--tio-brown)}
+.pg-hero{background:#f7f5f1}
+.pg-hero:before{background:var(--tio-gray);opacity:.62}
+.button-primary{background:var(--tio-orange);color:#fff}
+.button-primary:hover{background:#84361e}
+.button-secondary{border-color:var(--tio-teal);color:var(--tio-brown)}
+.eyebrow{color:var(--tio-teal)}
+.start-step .step-no{background:var(--tio-teal)}
+.resource-panel{background:var(--tio-brown)}
+.quote{background:var(--tio-brown)}
 </style>
 </head>
 <body>
@@ -148,19 +167,19 @@
     <p class="lead">You do not have to master any of this in one sitting. Each module adds another way to notice what is happening and decide what to do next.</p>
   </div>
   <div class="series-strip">
-    <article class="series-card" style="--accent:#0a6e82">
+    <article class="series-card" style="--accent:#058AB1">
       <small>Module 1</small><strong>Trauma, Healing & Identity in Supervision</strong>
       <p>Identity, power, context, equity, and parallel process.</p>
     </article>
-    <article class="series-card" style="--accent:#b68b35">
+    <article class="series-card" style="--accent:#FFD054">
       <small>Module 2</small><strong>Cultivating a Resilient Supervisor & Supervisee Relationship</strong>
       <p>Four strategies for strengthening the supervisory relationship.</p>
     </article>
-    <article class="series-card" style="--accent:#8a4d3c">
+    <article class="series-card" style="--accent:#A44624">
       <small>Module 3</small><strong>Proactive Approaches to Navigating Conflict & Tension</strong>
       <p>Conflict, fear, accountability, repair, and compassionate curiosity.</p>
     </article>
-    <article class="series-card" style="--accent:#5b457b">
+    <article class="series-card" style="--accent:#355166">
       <small>Module 4</small><strong>Developing Self-Awareness & Intentional Leadership Style</strong>
       <p>Integration, advocacy, and the leadership practices you want to carry forward.</p>
     </article>
