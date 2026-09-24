@@ -19,8 +19,8 @@
 .lab-panel>p{color:#566171}
 .step-panel{display:none}.step-panel.active{display:block}
 .scenario-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
-.scenario-choice{border:2px solid #D7DFE8;border-radius:18px;padding:17px;background:#fff;text-align:left;cursor:pointer;min-height:150px}
-.scenario-choice:hover{border-color:#AAB8C8}
+.scenario-choice{border:2px solid #7A8796;border-radius:18px;padding:17px;background:#fff;text-align:left;cursor:pointer;min-height:150px}
+.scenario-choice:hover{border-color:var(--navy)}
 .scenario-choice.selected{border-color:var(--teal);box-shadow:0 0 0 4px rgba(10,110,130,.10)}
 .scenario-choice strong{display:block;color:var(--navy);margin-bottom:5px}
 .scenario-choice span{display:block;color:#566171;font-size:.92rem}
@@ -33,7 +33,7 @@
 .character p{margin:2px 0 0;color:#394556}
 .coach{margin-top:15px;border-radius:20px;background:#EEF5F6;padding:18px;border-left:7px solid var(--teal)}
 .coach h3{margin:0 0 8px;font-size:1rem}
-.strategy-button{display:block;width:100%;text-align:left;padding:17px;border:2px solid #D9E0E8;border-radius:18px;background:#fff;cursor:pointer;border-left:8px solid var(--accent)}
+.strategy-button{display:block;width:100%;text-align:left;padding:17px;border:2px solid #7A8796;border-radius:18px;background:#fff;cursor:pointer;border-left:8px solid var(--accent)}
 .strategy-button.selected{box-shadow:0 0 0 4px rgba(25,41,84,.08);border-color:var(--accent)}
 .strategy-button strong{display:block;color:var(--navy)}.strategy-button span{display:block;color:#566171;margin-top:4px}
 .source-lines{display:grid;gap:9px;margin:14px 0}
@@ -86,7 +86,7 @@
 </div>
 
 <div id="ownStart" class="hidden" style="margin-top:24px">
-<div class="field"><label for="ownSituation">Describe the situation briefly</label><textarea id="ownSituation" placeholder="Remove names and identifying details."></textarea></div>
+<div class="field"><label for="ownSituation">Describe the situation briefly</label><p id="ownSituationHint" class="mode-note">Remove names and identifying details.</p><textarea id="ownSituation" aria-describedby="ownSituationHint ownError"></textarea><p id="ownError" class="field-error hidden">Please describe the situation briefly before continuing.</p></div>
 <div class="action-bar"><button class="button button-primary" id="ownContinue">Continue</button></div>
 </div>
 </div>
@@ -133,7 +133,7 @@
 </section>
 </div>
 
-<aside class="sidebar practice-summary" aria-live="polite" aria-atomic="false">
+<aside class="sidebar practice-summary">
 <h3>My practice summary</h3>
 <dl>
 <dt>Situation</dt><dd id="sumSituation" class="empty">Choose a situation to begin.</dd>
@@ -261,13 +261,15 @@ function renderDecisionResult(){
   const d=scenarios[state.scenario].decisions[state.decision];
   $("#decisionResult").innerHTML='<div class="character"><div class="avatar">S</div><div><strong>One possible supervisee response</strong><p>'+d.reply+'</p></div></div><div class="coach" style="--accent:var(--teal)"><h3>What this move does</h3><div class="feedback-grid"><div class="feedback"><strong>It opens</strong>'+d.opens+'</div><div class="feedback"><strong>It may miss or risk</strong>'+d.risk+'</div></div><p><strong>Strategy showing up:</strong> '+d.strategy+'</p></div>';
   $("#decisionResult").classList.remove("hidden");$("#toStrategy").classList.remove("hidden");
-  announce("Feedback is available below your selected first move.");
+  announce("Feedback is available for your selected first move.");
+  $("#decisionResult").focus();
 }
 function renderStrategyHelp(){
   const s=strategies[state.strategy];
   $("#strategyHelp").innerHTML='<div class="coach" style="border-left-color:'+s.accent+'"><h3>'+s.title+'</h3><p>'+s.desc+'</p><p><strong>Current Module 2 language to adapt:</strong></p><div class="source-lines">'+s.samples.map(x=>'<div class="source-line">'+x+'</div>').join("")+'</div></div>';
   $("#strategyHelp").classList.remove("hidden");$("#toPlan").classList.remove("hidden");
-  announce("Strategy guidance is available below your selected strategy.");
+  announce("Strategy guidance is available for your selected strategy.");
+  $("#strategyHelp").focus();
 }
 function renderSamples(){
   const s=strategies[state.strategy];
@@ -315,11 +317,13 @@ $("#ownContinue").addEventListener("click",()=>{
   const field=$("#ownSituation");
   if(!field.value.trim()){
     field.setAttribute("aria-invalid","true");
-    announce("Describe the situation briefly before continuing.");
+    $("#ownError").classList.remove("hidden");
+    announce("Please describe the situation briefly before continuing.");
     field.focus();
     return;
   }
   field.removeAttribute("aria-invalid");
+  $("#ownError").classList.add("hidden");
   state.mode="own";state.scenario=null;state.decision=null;
   $("#scenarioDecision").classList.add("hidden");$("#ownRead").classList.remove("hidden");updateSummary();go(2);
 });
@@ -330,7 +334,13 @@ $("#dynamicGrid").addEventListener("change",e=>{
   updateSummary();
 });
 $("#ownNotice").addEventListener("input",updateSummary);
-$("#ownSituation").addEventListener("input",()=>{if($("#ownSituation").value.trim())$("#ownSituation").removeAttribute("aria-invalid");updateSummary()});
+$("#ownSituation").addEventListener("input",()=>{
+  if($("#ownSituation").value.trim()){
+    $("#ownSituation").removeAttribute("aria-invalid");
+    $("#ownError").classList.add("hidden");
+  }
+  updateSummary();
+});
 $("#ownToStrategy").addEventListener("click",()=>go(3));
 $("#toStrategy").addEventListener("click",()=>go(3));
 $("#toPlan").addEventListener("click",()=>{renderSamples();go(4)});
