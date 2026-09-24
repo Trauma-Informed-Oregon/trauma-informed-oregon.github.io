@@ -7,10 +7,10 @@
 <link rel="stylesheet" href="../learning.css">
 <style>
 .pg-header .brand-lockup{display:flex;align-items:center;gap:11px;text-decoration:none}
-.tio-mark{width:42px;height:42px;border-radius:11px;background:#17305f;color:#fff;display:grid;place-items:center;font-weight:950;letter-spacing:-.04em;box-shadow:0 5px 14px rgba(25,41,84,.16)}
+.tio-mark{width:42px;height:42px;border-radius:11px;background:#355166;color:#fff;display:grid;place-items:center;font-weight:950;letter-spacing:-.04em;box-shadow:0 5px 14px rgba(25,41,84,.16)}
 .brand-copy{display:grid;gap:1px}
-.brand-copy strong{font-size:.95rem;color:#17274e}
-.brand-copy small{font-size:.76rem;color:#697487}
+.brand-copy strong{font-size:.95rem;color:#355166}
+.brand-copy small{font-size:.76rem;color:#355166}
 .pg-hero{position:relative;overflow:hidden;background:#f6f3ee;border-bottom:1px solid #e9e4dc}
 .pg-hero:before{content:"";position:absolute;width:470px;height:470px;border-radius:50%;background:#d8d6d2;right:-120px;top:-110px}
 .pg-hero .hero-inner{position:relative;z-index:2;grid-template-columns:.96fr 1.04fr;padding-top:64px;padding-bottom:54px}
@@ -18,14 +18,14 @@
 .pg-hero .hero-copy{max-width:610px}
 .pg-hero .hero-copy>p:last-of-type{font-size:1.08rem;color:#4f5968;max-width:640px}
 .pg-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:22px}
-.pg-art{min-height:390px;border-radius:32px;position:relative;overflow:hidden;background:linear-gradient(145deg,#0c6f80,#143260);box-shadow:0 24px 55px rgba(25,41,84,.17)}
-.pg-art svg{width:100%;height:100%;position:absolute;inset:0}
-.pg-art .caption{position:absolute;left:18px;bottom:16px;padding:8px 11px;border-radius:999px;background:rgba(255,255,255,.92);font-size:.76rem;font-weight:850;color:#17305f}
+.pg-art{min-height:390px;border-radius:0 54px 54px 0;position:relative;overflow:hidden;background:#058AB1;box-shadow:none}
+
+
 .welcome-band{margin-top:-1px;background:#fff}
-.start-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:26px;align-items:start}
+.start-grid{display:grid;grid-template-columns:1fr;gap:26px;align-items:start;max-width:900px}
 .steps{display:grid;gap:14px}
 .start-step{display:grid;grid-template-columns:58px 1fr;gap:16px;padding:18px;border-radius:20px;border:1px solid #dce2e8;background:#fff}
-.start-step .step-no{width:58px;height:58px;border-radius:18px;display:grid;place-items:center;background:#17305f;color:#fff;font-size:1.15rem;font-weight:950}
+.start-step .step-no{width:58px;height:58px;border-radius:18px;display:grid;place-items:center;background:#355166;color:#fff;font-size:1.15rem;font-weight:950}
 .start-step h3{margin:1px 0 4px;font-size:1.05rem}
 .start-step p{margin:0;color:#596475}
 .start-side{border-radius:26px;background:#eef5f5;padding:26px;border:1px solid #d4e2e3}
@@ -35,18 +35,18 @@
 .series-card{min-height:195px;padding:20px;border-radius:22px;background:#fff;border:1px solid #dde3e9;border-top:8px solid var(--accent);text-decoration:none;transition:transform .16s ease,box-shadow .16s ease}
 .series-card:hover{transform:translateY(-3px);box-shadow:0 14px 30px rgba(25,41,84,.09)}
 .series-card small{display:block;font-weight:950;color:#667487;text-transform:uppercase;letter-spacing:.07em;margin-bottom:8px}
-.series-card strong{display:block;color:#182b56;font-size:1.04rem;line-height:1.25}
+.series-card strong{display:block;color:#355166;font-size:1.04rem;line-height:1.25}
 .series-card p{color:#596475;font-size:.93rem}
-.resource-panel{padding:30px;border-radius:28px;background:#192954;color:#fff;display:grid;grid-template-columns:.9fr 1.1fr;gap:24px;align-items:center}
+.resource-panel{padding:30px;border-radius:28px;background:#355166;color:#fff;display:grid;grid-template-columns:.9fr 1.1fr;gap:24px;align-items:center}
 .resource-panel h2{color:#fff}
 .resource-panel p{color:#e7edf6}
 .resource-list{display:grid;gap:9px}
-.resource-link{display:flex;justify-content:space-between;gap:20px;align-items:center;padding:14px 16px;border-radius:15px;background:#fff;color:#192954;text-decoration:none;font-weight:850}
+.resource-link{display:flex;justify-content:space-between;gap:20px;align-items:center;padding:14px 16px;border-radius:15px;background:#fff;color:#355166;text-decoration:none;font-weight:850}
 .resource-link span:last-child{font-size:1.1rem}
 .resource-link:hover{background:#f3f6f8}
 .agreement-row{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
 .agreement{padding:18px;border-radius:18px;background:#f7f8fa;border:1px solid #e1e6eb}
-.agreement strong{display:block;color:#182b56;margin-bottom:4px}
+.agreement strong{display:block;color:#355166;margin-bottom:4px}
 .agreement p{margin:0;color:#5d6877;font-size:.92rem}
 .pg-footer-note{font-size:.86rem;color:#687383}
 @media(max-width:920px){
@@ -62,6 +62,15 @@
  .start-step{grid-template-columns:48px 1fr}
  .start-step .step-no{width:48px;height:48px}
 }
+
+.tio-motif{display:grid;place-items:center}
+.motif-squares{position:absolute;inset:0;background-image:linear-gradient(90deg,rgba(255,255,255,.15) 0 10px,transparent 10px 48px),linear-gradient(rgba(255,255,255,.15) 0 10px,transparent 10px 48px);background-size:48px 48px;opacity:.72}
+.motif-ellipse{position:absolute;width:420px;height:180px;border-radius:999px;background:#C6D8E1;right:-80px;bottom:-18px}
+.motif-copy{position:relative;z-index:2;background:#355166;color:#fff;border-radius:54px;padding:34px 40px;max-width:430px;margin:34px}
+.motif-copy span{display:block;font-size:.78rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;margin-bottom:8px}
+.motif-copy strong{font-size:clamp(1.8rem,3vw,3rem);line-height:1.02}
+.series-card{cursor:default}
+.resource-link{cursor:default}
 </style>
 </head>
 <body>
@@ -70,13 +79,13 @@
 <header class="site-header pg-header">
   <div class="header-inner">
     <a class="brand-lockup" href="/supervision/participant-guide/" aria-label="Trauma Informed Oregon, Trauma Informed Supervision participant guide">
-      <span class="tio-mark" aria-hidden="true">TIO</span>
+      <img src="data:image/webp;base64,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" alt="Trauma Informed Oregon" style="width:72px;height:auto;object-fit:contain">
       <span class="brand-copy"><strong>Trauma Informed Oregon</strong><small>Trauma Informed Supervision</small></span>
     </a>
     <nav class="header-nav" aria-label="Participant guide">
       <a href="#start">Start here</a>
       <a href="#series">Series</a>
-      <a href="#materials">Materials</a>
+      <a href="#materials">What you’ll receive</a>
       <button class="button button-secondary" onclick="window.print()">Print / Save PDF</button>
     </nav>
   </div>
@@ -92,48 +101,14 @@
       <p>You do not need to prepare a personal story for this training. Bring what is useful from your own experience, use hypothetical examples when that works better, and return to these tools when you want support applying the learning.</p>
       <div class="pg-actions">
         <a class="button button-primary" href="#start">Start here</a>
-        <a class="button button-secondary" href="#materials">See the session tools</a>
+        <a class="button button-secondary" href="#series">See the four sessions</a>
       </div>
     </div>
 
-    <div class="pg-art" role="img" aria-label="Illustration of people in reflective conversation, representing different identities and ways of participating">
-      <svg viewBox="0 0 760 520" aria-hidden="true">
-        <rect width="760" height="520" fill="#0c6f80"/>
-        <path d="M515-30c120 50 220 165 245 300v250H460c-52-98-56-205-4-317 22-48 42-96 59-143z" fill="#b7b8b8" opacity=".88"/>
-        <path d="M0 365c95-48 185-47 267 4 65 40 119 80 195 84v67H0z" fill="#143260" opacity=".62"/>
-        <circle cx="150" cy="144" r="68" fill="#c48622"/>
-        <path d="M84 133c4-53 35-88 79-88 31 0 58 17 77 49-14-8-28-10-45-7 2 24-7 47-25 68-19 23-45 38-78 45-8-25-11-47-8-67z" fill="#1e2631"/>
-        <path d="M105 208c40-27 93-24 129 9 36 33 54 89 54 168H65c3-87 16-145 40-177z" fill="#0d5f69"/>
-        <path d="M129 165c15 17 34 24 55 20l-4 44-48 3z" fill="#b9781e"/>
-        <path d="M116 124c8 21 23 35 45 43" stroke="#fff" stroke-width="4" fill="none" stroke-linecap="round"/>
-        <circle cx="125" cy="122" r="4" fill="#1e2631"/>
-        <path d="M158 145c10 3 18 2 26-2" stroke="#1e2631" stroke-width="3" fill="none" stroke-linecap="round"/>
-        <path d="M195 64c-21-22-47-32-78-27-19 3-38 14-49 30 8-32 38-56 73-57 30-1 55 11 75 35z" fill="#1e2631"/>
-
-        <circle cx="413" cy="174" r="72" fill="#f09b80"/>
-        <path d="M347 162c-2-50 28-95 78-104 40-7 79 15 98 52-13-8-25-12-38-12 2 22-3 40-16 54-17 19-38 31-64 37-21 5-40 3-58-6z" fill="#462f35"/>
-        <path d="M353 233c40-30 105-29 145 5 38 32 58 83 60 151H300c3-77 21-129 53-156z" fill="#d68b18"/>
-        <path d="M385 201c17 14 35 20 57 17l-3 45-48 2z" fill="#df886f"/>
-        <circle cx="393" cy="159" r="4" fill="#462f35"/>
-        <path d="M420 179c11 4 20 3 29-1" stroke="#462f35" stroke-width="3" fill="none" stroke-linecap="round"/>
-        <path d="M357 111c15-42 51-66 94-61 34 4 62 25 77 58-19-11-38-15-58-10-31 7-52 27-66 58-11-16-27-31-47-45z" fill="#462f35"/>
-        <path d="M318 281c-39 20-66 58-73 115" stroke="#f09b80" stroke-width="24" fill="none" stroke-linecap="round"/>
-        <path d="M248 395c17-3 32-1 46 5" stroke="#f09b80" stroke-width="19" fill="none" stroke-linecap="round"/>
-
-        <circle cx="621" cy="201" r="62" fill="#7e3a32"/>
-        <path d="M566 191c-2-44 22-82 62-94 37-11 77 2 101 34-18-8-34-10-49-5 1 19-5 36-17 50-15 17-34 29-57 35-15 4-28 4-40 0z" fill="#1d2027"/>
-        <path d="M570 252c35-22 86-20 119 9 31 28 47 71 49 128H532c1-62 14-108 38-137z" fill="#efe9d9"/>
-        <path d="M594 225c14 10 29 14 47 10l-1 36-41 4z" fill="#71342d"/>
-        <path d="M652 101c17-15 39-22 66-21-12-15-27-25-45-30-25-7-48-2-68 14 17 6 33 18 47 37z" fill="#1d2027"/>
-        <circle cx="602" cy="190" r="3.5" fill="#1d2027"/>
-        <path d="M625 208c8 3 16 3 23 0" stroke="#1d2027" stroke-width="3" fill="none" stroke-linecap="round"/>
-
-        <path d="M52 439c107 25 202 27 310 8 124-22 230-17 350 19" stroke="#e9e6df" stroke-width="3" opacity=".7" fill="none"/>
-        <circle cx="265" cy="92" r="8" fill="#e9e6df" opacity=".85"/>
-        <circle cx="294" cy="70" r="5" fill="#e9e6df" opacity=".75"/>
-        <circle cx="318" cy="92" r="3" fill="#e9e6df" opacity=".65"/>
-      </svg>
-      <span class="caption">How we do the work is the work.</span>
+    <div class="pg-art tio-motif" role="img" aria-label="Trauma Informed Oregon visual motif using the organization’s teal, warm gray, square pattern, and rounded forms">
+      <div class="motif-squares" aria-hidden="true"></div>
+      <div class="motif-ellipse" aria-hidden="true"></div>
+      <div class="motif-copy"><span>Equity-Centered</span><strong>Trauma Informed<br>Supervision</strong></div>
     </div>
   </div>
 </section>
@@ -162,12 +137,7 @@
       </div>
     </div>
 
-    <aside class="start-side">
-      <p class="eyebrow">Module 2 includes interactive practice</p>
-      <h3>Try a supervision moment before you have to handle one in real time.</h3>
-      <p>The Module 2 Strategy Lab lets you work through a fictional supervisory situation, see what different moves may open or miss, and build language in your own voice.</p>
-      <a class="button button-primary" href="/supervision/module-2-practice/">Open the Strategy Lab</a>
-    </aside>
+    
   </div>
 </section>
 
@@ -178,37 +148,37 @@
     <p class="lead">You do not have to master any of this in one sitting. Each module adds another way to notice what is happening and decide what to do next.</p>
   </div>
   <div class="series-strip">
-    <a class="series-card" style="--accent:#0a6e82" href="/supervision/module-1-practice/">
+    <article class="series-card" style="--accent:#0a6e82">
       <small>Module 1</small><strong>Trauma, Healing & Identity in Supervision</strong>
       <p>Identity, power, context, equity, and parallel process.</p>
-    </a>
-    <a class="series-card" style="--accent:#b68b35" href="/supervision/module-2-practice/">
+    </article>
+    <article class="series-card" style="--accent:#b68b35">
       <small>Module 2</small><strong>Cultivating a Resilient Supervisor & Supervisee Relationship</strong>
       <p>Four strategies for strengthening the supervisory relationship.</p>
-    </a>
-    <a class="series-card" style="--accent:#8a4d3c" href="/supervision/module-3-practice/">
+    </article>
+    <article class="series-card" style="--accent:#8a4d3c">
       <small>Module 3</small><strong>Proactive Approaches to Navigating Conflict & Tension</strong>
       <p>Conflict, fear, accountability, repair, and compassionate curiosity.</p>
-    </a>
-    <a class="series-card" style="--accent:#5b457b" href="/supervision/module-4-practice/">
+    </article>
+    <article class="series-card" style="--accent:#5b457b">
       <small>Module 4</small><strong>Developing Self-Awareness & Intentional Leadership Style</strong>
       <p>Integration, advocacy, and the leadership practices you want to carry forward.</p>
-    </a>
-  </div>
+    </article>
+    </div>
 </section>
 
 <section class="section" id="materials">
   <div class="resource-panel">
     <div>
-      <p class="eyebrow" style="color:#8fd0d8">Your series materials</p>
-      <h2>Open what you need when you need it.</h2>
-      <p>The session tools are designed to be useful after the training too. Save this page or bookmark it so you can return later.</p>
+      <p class="eyebrow" style="color:#C6D8E1">What you’ll receive</p>
+      <h2>Each practice tool comes after the session it belongs to.</h2>
+      <p>You do not need to work ahead. Your facilitators will share the matching tool as the series moves forward so you can stay with the session you are in.</p>
     </div>
-    <div class="resource-list">
-      <a class="resource-link" href="/supervision/module-1-practice/"><span>Module 1: Identity, Context & Parallel Process</span><span aria-hidden="true">→</span></a>
-      <a class="resource-link" href="/supervision/module-2-practice/"><span>Module 2: Interactive Strategy Practice</span><span aria-hidden="true">→</span></a>
-      <a class="resource-link" href="/supervision/module-3-practice/"><span>Module 3: Conflict & Tension Practice</span><span aria-hidden="true">→</span></a>
-      <a class="resource-link" href="/supervision/module-4-practice/"><span>Module 4: Intentional Leadership & Advocacy</span><span aria-hidden="true">→</span></a>
+    <div class="resource-list" aria-label="Participant materials sequence">
+      <div class="resource-link"><span>After Module 1: Identity, Context & Parallel Process</span><span aria-hidden="true">1</span></div>
+      <div class="resource-link"><span>During and after Module 2: Interactive Strategy Practice</span><span aria-hidden="true">2</span></div>
+      <div class="resource-link"><span>After Module 3: Conflict & Tension Practice</span><span aria-hidden="true">3</span></div>
+      <div class="resource-link"><span>After Module 4: Intentional Leadership & Advocacy</span><span aria-hidden="true">4</span></div>
     </div>
   </div>
 </section>
