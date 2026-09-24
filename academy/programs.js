@@ -1,0 +1,72 @@
+window.TIO_ACADEMY_PROGRAMS = [
+  {
+    id: "supervision",
+    title: "TI Supervision",
+    eyebrow: "Live learning series",
+    status: "available",
+    format: "Four-part series",
+    price: "Paid",
+    ce: "Self-paced CE option planned",
+    audience: "Supervisors, managers, and people who lead others",
+    summary: "Equity-centered trauma-informed supervision with practical tools, participant materials, implementation support, and a Training of Trainers pathway.",
+    href: "/supervision/",
+    accent: "#0A6E82",
+    soft: "#E7F1F3",
+    art: "people"
+  },
+  {
+    id: "minor-consent",
+    title: "Minor Consent",
+    eyebrow: "Self-paced learning",
+    status: "available",
+    format: "Interactive",
+    price: "No-cost learning module",
+    ce: "CE option planned",
+    audience: "Oregon behavioral health care providers",
+    summary: "Interactive learning on consent, parent and guardian involvement, disclosure, and related practice considerations.",
+    href: "/minorconsent/",
+    accent: "#8A4D3C",
+    soft: "#F4E8E1",
+    art: "path"
+  },
+  {
+    id: "workforce-wellness",
+    title: "TI Workforce Wellness",
+    eyebrow: "Coming soon",
+    status: "coming-soon",
+    format: "Growing learning series",
+    audience: "People and teams doing demanding work",
+    summary: "Practical learning and tools that connect workforce wellness to the conditions, rhythms, relationships, and systems that shape the work.",
+    href: "./workforce-wellness/",
+    accent: "#386B59",
+    soft: "#E7F0EA",
+    art: "rhythm"
+  },
+  {
+    id: "divining-liberation",
+    title: "Divining Liberation",
+    eyebrow: "Coming soon",
+    status: "coming-soon",
+    format: "Four-part series + ToT",
+    audience: "People of color and culture",
+    summary: "A culturally centered learning experience focused on personal and collective freedom, well-being, cultural strengths, and practices that support liberation.",
+    href: "./divining-liberation/",
+    accent: "#5B457B",
+    soft: "#EEE9F4",
+    art: "roots"
+  },
+  {
+    id: "foundations",
+    title: "Foundations of Trauma Informed Care",
+    eyebrow: "Connected TIO learning",
+    status: "external",
+    format: "Existing TIO course",
+    price: "No cost",
+    audience: "Anyone building foundational TIC knowledge",
+    summary: "Foundational Trauma Informed Care learning already exists on the TIO website. The Academy connects to it directly rather than rebuilding it.",
+    href: "https://traumainformedoregon.org/foundations-of-tic-modules/",
+    accent: "#7A5A18",
+    soft: "#F4EFD9",
+    art: "foundation"
+  }
+];
