@@ -13,7 +13,8 @@
   --rose:#8A4D3C;
   --green:#386B59;
   --purple:#5B457B;
-  --focus:#F0B429;
+  --focus:#192954;
+  --focus-ring:#FFD054;
   --max:1180px;
   --shadow:0 24px 60px rgba(25,41,84,.12);
 }
@@ -23,7 +24,7 @@ body{margin:0;font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSy
 a{color:inherit}
 button,input,textarea,select{font:inherit}
 a,button,input,textarea,select{outline-offset:4px}
-a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible,select:focus-visible{outline:3px solid var(--focus)}
+a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible,select:focus-visible{outline:3px solid var(--focus);box-shadow:0 0 0 6px var(--focus-ring)}
 .skip{position:fixed;left:12px;top:8px;z-index:99;padding:9px 12px;background:#fff;border:2px solid var(--navy);border-radius:10px;transform:translateY(-150%)}
 .skip:focus{transform:none}
 .site-header{position:sticky;top:0;z-index:30;background:rgba(255,255,255,.96);backdrop-filter:blur(12px);border-bottom:1px solid rgba(25,41,84,.09)}
@@ -32,7 +33,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible,
 .brand strong{color:var(--navy);font-size:.98rem}
 .brand small{color:var(--muted);font-size:.78rem}
 .header-nav{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
-.header-nav a{font-weight:800;text-decoration:none;font-size:.9rem;color:var(--navy)}
+.header-nav a{font-weight:800;text-decoration:none;font-size:.9rem;color:var(--navy);min-height:44px;display:inline-flex;align-items:center}
 .button{min-height:44px;display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:10px 17px;border-radius:999px;border:2px solid transparent;text-decoration:none;font-weight:850;cursor:pointer}
 .button-primary{background:var(--navy);color:#fff}
 .button-primary:hover{background:#10234d}
@@ -87,7 +88,7 @@ textarea{min-height:120px;resize:vertical}
 .choice{position:relative}
 .choice input{position:absolute;opacity:0;pointer-events:none}
 .choice label{display:block;height:100%;border:2px solid #D4DCE6;border-radius:17px;padding:16px;background:#fff;cursor:pointer}
-.choice input:focus-visible+label{outline:3px solid var(--focus)}
+.choice input:focus-visible+label{outline:3px solid var(--focus);outline-offset:4px;box-shadow:0 0 0 6px var(--focus-ring)}
 .choice input:checked+label{border-color:var(--teal);box-shadow:0 0 0 4px rgba(10,110,130,.10)}
 .choice label strong{display:block;color:var(--navy);margin-bottom:4px}
 .choice label span{display:block;color:#566171;font-size:.94rem}
@@ -141,7 +142,7 @@ footer{padding:30px 22px;background:#F3EFE8;color:#5B6470;text-align:center}
   .hero h1{font-size:3rem}
   .hero-visual{min-height:240px}
 }
-@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{scroll-behavior:auto!important;transition-duration:.01ms!important;animation-duration:.01ms!important;animation-iteration-count:1!important}}
 @media print{
   .site-header,.header-nav,.action-bar,.button,.skip,footer{display:none!important}
   .hero{background:#fff}.hero-inner{display:block;padding:10px 0 25px}.hero-visual{display:none}
@@ -150,3 +151,5 @@ footer{padding:30px 22px;background:#F3EFE8;color:#5B6470;text-align:center}
   .card,.practice-card,.scenario,.strategy{box-shadow:none;break-inside:avoid}
   textarea,input[type="text"]{border:1px solid #777;min-height:70px}
 }
+.sr-only{position:absolute!important;width:1px!important;height:1px!important;padding:0!important;margin:-1px!important;overflow:hidden!important;clip:rect(0,0,0,0)!important;white-space:nowrap!important;border:0!important}
+main:focus{outline:none}
