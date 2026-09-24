@@ -129,11 +129,12 @@ footer{padding:30px 22px;background:#F3EFE8;color:#5B6470;text-align:center}
   .grid.three{grid-template-columns:1fr 1fr}
 }
 @media(max-width:680px){
-  .header-inner{align-items:flex-start}
+  .header-inner{align-items:flex-start;flex-direction:column}
+  .header-nav{width:100%}
   .header-nav a:not(.button){display:none}
   .hero-inner{padding:52px 18px 46px}
   .section{padding:56px 18px}
-  .grid,.grid.three,.choice-grid,.strategy-grid,.mode-grid{grid-template-columns:1fr}
+  .grid,.grid.three,.choice-grid,.strategy-grid,.mode-grid,.feedback-grid{grid-template-columns:1fr}
   .path{grid-template-columns:1fr}
   .path a{min-height:auto}
   .progress{grid-template-columns:1fr 1fr}
