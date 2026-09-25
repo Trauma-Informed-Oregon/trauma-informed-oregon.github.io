@@ -19,7 +19,7 @@
   --shadow:0 24px 60px rgba(25,41,84,.12);
 }
 *{box-sizing:border-box}
-html{scroll-behavior:smooth}
+html{scroll-behavior:smooth;scroll-padding-top:110px}
 body{margin:0;font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:var(--ink);background:#fff;line-height:1.55}
 a{color:inherit}
 button,input,textarea,select{font:inherit}
@@ -157,3 +157,20 @@ main:focus{outline:none}
 
 textarea[aria-invalid="true"],input[aria-invalid="true"]{border-color:#8A4D3C;box-shadow:0 0 0 3px rgba(138,77,60,.16)}
 .field-error{color:#8A4D3C;font-weight:800;margin:6px 0 0}
+
+main,[tabindex="-1"],h1,h2,h3{scroll-margin-top:110px}
+
+.choice input:checked+label{position:relative;padding-right:92px}
+.choice input:checked+label::after{
+  content:"✓ Selected";
+  position:absolute;
+  top:10px;
+  right:10px;
+  padding:4px 8px;
+  border-radius:999px;
+  background:var(--navy);
+  color:#fff;
+  font-size:.72rem;
+  font-weight:900;
+  letter-spacing:.01em;
+}
