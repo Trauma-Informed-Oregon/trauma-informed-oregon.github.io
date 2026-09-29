@@ -83,3 +83,11 @@ footer{max-width:none}
   .example,.glance{display:none}
 }
 .glance+.callout{margin-top:16px}
+/* no decorative art: single column, logo in header */
+.hero-inner{grid-template-columns:1fr;max-width:1180px}
+.hero-inner>div{max-width:820px}
+.lab-intro{grid-template-columns:1fr}
+.lab-intro>div{max-width:820px}
+.brand{display:flex;align-items:center;gap:14px}
+.brand img{width:52px;height:auto;display:block}
+.brand-text{display:grid;gap:1px}
