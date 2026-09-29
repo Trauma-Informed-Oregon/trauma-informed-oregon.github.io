@@ -1,0 +1,85 @@
+/* Practice kit look: matches the TIO training decks and workbooks.
+   Loaded after learning.css on the four module practice pages only. */
+@font-face{font-family:Inter;font-weight:400;font-display:swap;src:url(fonts/inter-latin-400-normal.woff2) format("woff2")}
+@font-face{font-family:Inter;font-weight:600;font-display:swap;src:url(fonts/inter-latin-600-normal.woff2) format("woff2")}
+@font-face{font-family:Inter;font-weight:700;font-display:swap;src:url(fonts/inter-latin-700-normal.woff2) format("woff2")}
+@font-face{font-family:Inter;font-weight:800;font-display:swap;src:url(fonts/inter-latin-800-normal.woff2) format("woff2")}
+:root{
+  --teal:#00837E;--teal-2:#00837E;--navy:#005C58;--navy-2:#005C58;
+  --brown:#5C534D;--ink:#2E2926;--cream:#F7F4F0;--gray:#E5E2DF;--org:#A44624;
+  --sand:#E5E2DF;--muted:#5C534D;--line:#E5E2DF;--soft:#F7F4F0;
+  --gold:#A44624;--rose:#5C534D;--green:#00837E;--purple:#005C58;
+  --focus:#005C58;--shadow:none;
+}
+body{font-family:Inter,Arial,sans-serif;color:var(--brown);background:var(--cream);text-align:left}
+h1,h2,h3,h4,.section h2,.section h3,.lab-intro h1,.lab-panel h2,.hero h1{color:var(--ink);font-weight:800;letter-spacing:-.02em}
+.hero h1,.lab-intro h1{line-height:1.05}
+.hero h1{font-size:clamp(2.4rem,4.6vw,4.2rem)}
+.lab-intro h1{font-size:clamp(2.4rem,4.4vw,4rem)}
+.section h2{font-size:clamp(1.7rem,3vw,2.7rem);line-height:1.1}
+.lead,.hero p,.card p,.mode p,.step p,.strategy p,.mode-note,.lab-panel>p,.scenario-choice span,.decision span,.strategy-button span,.choice label span,.practice-summary dd,.character p,.source-line,.sample,.status{color:var(--brown)}
+.card strong,.step strong,.path strong,.choice label strong,.scenario-choice strong,.decision strong,.strategy-button strong,.feedback strong,.response-box h4,.field label,.field legend,.brand strong,.header-nav a,.joined b,.practice-summary h3{color:var(--ink)}
+/* header */
+.site-header{background:var(--cream);backdrop-filter:none;border-bottom:1px solid var(--gray)}
+.brand small,.practice-card dt,.practice-summary dt{color:var(--brown)}
+.header-nav a{color:var(--navy)}
+/* title tab */
+.eyebrow{color:var(--navy);font-weight:700;letter-spacing:.14em}
+.hero{background:var(--cream);border-bottom:1px solid var(--gray)}
+.hero-inner{padding-top:56px}
+.hero .eyebrow,.lab-intro .eyebrow.tab-eyebrow{display:inline-block;background:var(--teal);color:#fff;border-radius:0 0 14px 14px;padding:14px 26px 12px;margin:-56px 0 22px;font-size:.85rem}
+.lab-shell{padding-top:0}
+.lab-intro>div>.eyebrow:first-child{display:inline-block;background:var(--teal);color:#fff;border-radius:0 0 14px 14px;padding:14px 26px 12px;margin:0 0 22px;font-size:.85rem}
+.section .eyebrow,.lab-panel .eyebrow{color:var(--navy)}
+.hero-visual,.lab-art{border-radius:16px;background:var(--navy);box-shadow:none}
+.hero-visual:before,.hero-visual:after,.lab-art:before,.lab-art:after{border-color:rgba(255,255,255,.3)}
+/* buttons */
+.button{border-radius:10px}
+.button-primary{background:var(--navy);color:#fff}
+.button-primary:hover{background:#00403D}
+.button-secondary{background:#fff;color:var(--navy);border-color:var(--navy)}
+.button-soft{background:var(--gray);color:var(--ink)}
+.button-plain{color:var(--navy);text-decoration:underline}
+/* cards and boxes */
+.card,.practice-card,.practice-summary,.lab-panel,.scenario,.mode,.strategy,.feedback{background:#fff;border:1px solid var(--gray);border-radius:12px;box-shadow:none}
+.card-accent{border-top:5px solid var(--accent,var(--teal))}
+.practice-card,.practice-summary{border-top:5px solid var(--teal);background:#fff}
+.callout,.coach,.status,.response-box{background:#fff;border:1px solid var(--gray);border-left:1px solid var(--gray);border-top:5px solid var(--teal);border-radius:12px;color:var(--brown)}
+.response-box{border-top-color:var(--accent,var(--teal))}
+.callout strong{color:var(--ink)}
+.quote{background:var(--navy);border-radius:12px}
+.number,.step b{background:var(--teal);color:#fff;border-radius:9px;width:40px;height:40px}
+.step{background:#fff;border:1px solid var(--gray);border-radius:12px}
+.pill,.meta span,.progress span{background:var(--gray);color:var(--ink)}
+.progress span.active{background:var(--navy);color:#fff}
+.progress span.done{background:#fff;border:1px solid var(--teal);color:var(--navy)}
+.character{background:#fff;border:1px solid var(--gray)}
+.avatar{background:var(--gray);color:var(--ink)}
+.source-line,.sample{background:var(--cream);border:1px solid var(--gray)}
+/* choices */
+textarea,input[type="text"]{border:2px solid var(--brown);border-radius:10px;background:#fff;color:var(--ink)}
+.choice label,.scenario-choice,.decision,.strategy-button{border:2px solid var(--brown);border-radius:12px;background:#fff}
+.decision{border-color:var(--gray)}
+.decision:hover{border-color:var(--brown)}
+.choice input:checked+label,.scenario-choice.selected,.decision.selected,.strategy-button.selected{border-color:var(--teal);box-shadow:0 0 0 3px rgba(0,131,126,.18)}
+.choice input:checked+label::after,.scenario-choice.selected::after,.decision.selected::after,.strategy-button.selected::after{background:var(--navy);color:#fff;border-radius:6px}
+.strategy{border-top:5px solid var(--accent,var(--teal))}
+.strategy-button{border-left:8px solid var(--accent,var(--teal))}
+/* at a glance + example */
+.glance{display:flex;flex-wrap:wrap;gap:8px;margin:18px 0 0;padding:0;list-style:none}
+.glance li{padding:7px 12px;border-radius:8px;background:#fff;border:1px solid var(--gray);color:var(--ink);font-size:.9rem;font-weight:600}
+.example{margin:0 0 22px;background:#fff;border:1px solid var(--gray);border-top:5px solid var(--org);border-radius:12px;padding:6px 20px}
+.example summary{cursor:pointer;min-height:44px;display:flex;align-items:center;font-weight:700;color:var(--ink)}
+.example dl{margin:6px 0 14px}
+.example dt{font-size:.78rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--org);margin-top:12px}
+.example dd{margin:3px 0 0;color:var(--ink)}
+/* footer */
+footer{background:var(--gray);color:var(--brown);text-align:left;padding:26px 22px}
+footer{max-width:none}
+@media(max-width:680px){.hero-inner{padding-top:40px}.hero .eyebrow{margin-top:-40px}}
+@media print{
+  body{background:#fff}
+  .hero{background:#fff}
+  .example,.glance{display:none}
+}
+.glance+.callout{margin-top:16px}

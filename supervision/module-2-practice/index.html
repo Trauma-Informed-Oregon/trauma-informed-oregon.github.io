@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex,nofollow">
-<title>Module 2 Strategy Lab | TI Supervision</title>
+<title>Module 2 Practice Kit: Strategy Lab | TI Supervision</title>
 <link rel="stylesheet" href="../learning.css">
 <style>
 .lab-shell{max-width:1180px;margin:auto;padding:42px 22px 76px}
@@ -66,18 +66,20 @@
 .progress span.active::after{content:" · Current";font-weight:950}
 .progress span.done::before{content:"✓ ";font-weight:950}
 </style>
+<link rel="stylesheet" href="../practice.css">
 </head>
 <body>
 <a class="skip" href="#main">Skip to Strategy Lab</a>
 <header class="site-header"><div class="header-inner">
-<a class="brand" href="/supervision/participant-guide/"><strong>Trauma Informed Oregon</strong><small>TI Supervision - Module 2 Strategy Lab</small></a>
+<a class="brand" href="/supervision/participant-guide/"><strong>Trauma Informed Oregon</strong><small>TI Supervision - Module 2 Practice Kit: Strategy Lab</small></a>
 <nav class="header-nav"><a href="/supervision/participant-guide/">Participant Guide</a><span class="pill">Nothing is submitted</span></nav>
 </div></header>
 
 <main id="main" class="lab-shell" tabindex="-1">
 <div id="labStatus" class="sr-only" role="status" aria-live="polite" aria-atomic="true"></div>
 <section class="lab-intro">
-<div><p class="eyebrow">Module 2 Strategy Lab</p><h1>Practice the judgment behind the script.</h1><p>Use a short hypothetical scenario during the training, or work through your own low-activation situation later. Your choices shape what appears next. There is no score.</p>
+<div><p class="eyebrow">Module 2 Practice Kit: Strategy Lab</p><h1>Practice the judgment behind the script.</h1><p>Use a short hypothetical scenario during the training, or work through your own low-activation situation later. Your choices shape what appears next. There is no score.</p>
+<ul class="glance" aria-label="At a glance"><li>Optional</li><li>8 to 12 minutes</li><li>Use in breakout practice or on your own</li></ul>
 <div class="callout privacy-note"><strong>Your work stays in this tab.</strong> Nothing is sent to TIO. Closing the tab clears what you typed. Print or save your practice summary if you want to keep it.</div></div>
 <div class="lab-art" aria-hidden="true"><svg viewBox="0 0 220 220"><path d="M40 54h56l20 30h64v82H40z"/><circle cx="77" cy="110" r="22"/><path d="M99 110h43"/><path d="M130 92l18 18-18 18"/></svg></div>
 </section>
@@ -138,6 +140,14 @@
 <div class="step-panel" data-step="4">
 <p class="eyebrow">Step 4</p><h2>Build your response in your own voice.</h2>
 <div id="sampleArea"></div>
+<details class="example"><summary>See one finished example</summary>
+<dl><dt>Situation</dt><dd>The follow-through gap. A supervisee has raised a workload concern more than once, and you have not come back to them with an answer.</dd>
+<dt>Strategy</dt><dd>Consistency &amp; Transparency</dd>
+<dt>First thing I would say</dt><dd>&ldquo;You&rsquo;re right. I told you I would follow up and I have not given you an update. I still do not have an answer. Let&rsquo;s look at what we can change now and set a time to revisit the rest.&rdquo;</dd>
+<dt>One truth in the room, and another</dt><dd>I said I would check with leadership and I have not come back to you. And I still do not have an answer, and your workload concern is real.</dd>
+<dt>What I will do after</dt><dd>Email leadership today and ask for a date. Tell the supervisee by Friday what I heard back, even if it is &ldquo;nothing yet.&rdquo;</dd>
+<dt>Support I need</dt><dd>A named person on the leadership side who can answer, and 15 minutes with my own supervisor to plan the ask.</dd></dl></details>
+
 <div class="field"><label for="opening">What would you actually say first?</label><textarea id="opening"></textarea></div>
 <div class="joined">
 <div class="field"><label for="truth1">One truth in the room</label><textarea id="truth1"></textarea></div><b>and</b>
@@ -236,8 +246,8 @@ function announce(message){const el=$("#labStatus");el.textContent="";window.set
 
 function setText(id,text,empty=false){const el=$(id);el.textContent=text||"";el.classList.toggle("empty",empty)}
 function go(step){
-  $(".step-panel").forEach(x=>x.classList.toggle("active",x.dataset.step==step));
-  $("[data-progress]").forEach(x=>{
+  $$(".step-panel").forEach(x=>x.classList.toggle("active",x.dataset.step==step));
+  $$("[data-progress]").forEach(x=>{
     const n=+x.dataset.progress;
     x.classList.toggle("active",n==step);
     x.classList.toggle("done",n<step);
@@ -312,19 +322,19 @@ document.addEventListener("click",e=>{
       urgent:["Stress or activation: Someone’s system, maybe yours, is running hot enough to narrow thinking.","Either/or pressure: The options are starting to sound all-or-nothing.","Trust or safety: How safe enough does it feel to be honest in this relationship right now?"]
     };
     state.dynamics=scenarioDynamics[scenarios[state.scenario].id]||[];
-    $(".scenario-choice").forEach(x=>{const on=x===sc;x.classList.toggle("selected",on);x.setAttribute("aria-pressed",String(on))});
+    $$(".scenario-choice").forEach(x=>{const on=x===sc;x.classList.toggle("selected",on);x.setAttribute("aria-pressed",String(on))});
     updateSummary();renderDecision();$("#scenarioDecision").classList.remove("hidden");$("#ownRead").classList.add("hidden");go(2);
   }
   const dec=e.target.closest("[data-decision]");
   if(dec){
     state.decision=+dec.dataset.decision;
-    $(".decision").forEach(x=>{const on=x===dec;x.classList.toggle("selected",on);x.setAttribute("aria-pressed",String(on))});
+    $$(".decision").forEach(x=>{const on=x===dec;x.classList.toggle("selected",on);x.setAttribute("aria-pressed",String(on))});
     renderDecisionResult();updateSummary();
   }
   const st=e.target.closest("[data-strategy]");
   if(st){
     state.strategy=+st.dataset.strategy;
-    $(".strategy-button").forEach(x=>{const on=x===st;x.classList.toggle("selected",on);x.setAttribute("aria-pressed",String(on))});
+    $$(".strategy-button").forEach(x=>{const on=x===st;x.classList.toggle("selected",on);x.setAttribute("aria-pressed",String(on))});
     renderStrategyHelp();updateSummary();
   }
   const back=e.target.closest("[data-back]"); if(back)go(+back.dataset.back);
